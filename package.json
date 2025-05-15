@@ -1,0 +1,54 @@
+{
+  "name": "superex",
+  "version": "1.0.0",
+  "description": "React Js NFT Marketplace Template",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "autoprefixer": "10.4.5",
+    "bootstrap": "^5.3.3",
+    "ethers": "^5.7.2",
+    "react": "^18.2.0",
+    "react-18-image-lightbox": "^5.1.4",
+    "react-bootstrap": "^2.10.2",
+    "react-countup": "^6.5.3",
+    "react-dom": "^18.2.0",
+    "react-modal-video": "^2.0.1",
+    "react-router-dom": "^6.22.3",
+    "react-scripts": "5.0.1",
+    "react-scroll": "^1.9.0",
+    "react-select": "^5.8.0",
+    "react-type-animation": "^3.2.0",
+    "tiny-slider-react": "^0.5.7",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "sass": "^1.74.1"
+  }
+}
