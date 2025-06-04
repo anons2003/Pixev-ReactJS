@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { nftData } from '../data/data'
+import { resourceData } from '../data/data'
 
 
 export default function LiveAuction() {
-    const [productData, setProductData] = useState(nftData);
+    const [productData, setProductData] = useState(resourceData);
     
     useEffect(()=>{
         const interval = setTimeout(()=>{
@@ -14,7 +14,7 @@ export default function LiveAuction() {
     })
 
     const remainingDays = () => {
-        const formattedData = nftData.map((item) => ({
+        const formattedData = resourceData.map((item) => ({
             ...item,
             remaining: calculateDays(item.date),
         }));
@@ -36,10 +36,9 @@ export default function LiveAuction() {
   return (
     <>
     <div className="row justify-content-center">
-        <div className="col">
-            <div className="section-title text-center mb-5 pb-3">
-                <h4 className="title mb-4">Live Auctions</h4>
-                <p className="text-muted para-desc mb-0 mx-auto">We are a huge marketplace dedicated to connecting great artists of all Superex with their fans and unique token collectors!</p>
+        <div className="col">            <div className="section-title text-center mb-5 pb-3">
+                <h4 className="title mb-4">Trending Resources</h4>
+                <p className="text-muted para-desc mb-0 mx-auto">We are a huge marketplace dedicated to connecting talented designers and developers with creative professionals seeking high-quality digital assets!</p>
             </div>
         </div>
     </div>
@@ -69,10 +68,8 @@ export default function LiveAuction() {
                             <Link to={`/item-detail-one/${item.id}`}><img src={item.product} className="img-fluid" alt=""/></Link>
                             <div className="position-absolute top-0 start-0 m-2">
                                 <Link to="#" className="badge badge-link bg-primary">{item.tag}</Link>
-                            </div>
-
-                            <div className="position-absolute top-0 end-0 m-2">
-                                <Link to={`/item-detail-one/${item.id}`} className="btn btn-pills btn-icon"><i className="uil uil-shopping-cart-alt"></i></Link>
+                            </div>                            <div className="position-absolute top-0 end-0 m-2">
+                                <Link to={`/item-detail-one/${item.id}`} className="btn btn-pills btn-primary btn-sm">Premium</Link>
                             </div>
                                 <div className="position-absolute bottom-0 start-0 m-2 bg-gradient-primary text-white title-dark rounded-pill px-3">
                                     <i className="uil uil-clock"></i> <small id="auction-item-1" className="fw-bold">{item.remaining?.days + " : " + item.remaining?.hours + " : " + item.remaining?.minutes + " : " + item.remaining?.seconds}</small>
@@ -80,11 +77,9 @@ export default function LiveAuction() {
                         </div>
 
                         <div className="card-body content position-relative p-0 mt-3">
-                            <Link to={`/item-detail-one/${item.id}`} className="title text-dark h6">{item.name}</Link>
-
-                            <div className="d-flex justify-content-between mt-2">
-                                <small className="rate fw-bold">{item.value}</small>
-                                <small className="text-dark fw-bold">1 out of 10</small>
+                            <Link to={`/item-detail-one/${item.id}`} className="title text-dark h6">{item.name}</Link>                            <div className="d-flex justify-content-between mt-2">
+                                <small className="rate fw-bold">Premium</small>
+                                <small className="text-dark fw-bold">{item.category}</small>
                             </div>
                         </div>
                     </div>

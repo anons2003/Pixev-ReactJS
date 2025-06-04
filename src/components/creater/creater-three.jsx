@@ -9,7 +9,7 @@ export default function CreaterThree() {
               <div className="col">
                   <div className="section-title text-center mb-5 pb-3">
                       <h4 className="title mb-4">Popular Creators</h4>
-                      <p className="text-muted para-desc mb-0 mx-auto">We are a huge marketplace dedicated to connecting great artists of all Superex with their fans and unique token collectors!</p>
+                      <p className="text-muted para-desc mb-0 mx-auto">We are a huge marketplace dedicated to connecting great artists of all Pixev with their fans and unique token collectors!</p>
                   </div>
               </div>
         </div>

@@ -66,7 +66,7 @@ export default function IndexFive() {
           <div className="col-12">
               <div className="section-title">
                   <h4 className="title mb-2">Best Creators & Sellers</h4>
-                  <p className="text-muted mb-0">Best sellers of the week's NFTs</p>
+                  <p className="text-muted mb-0">Best sellers of the week's digital resources</p>
               </div>
           </div>
         </div>
@@ -85,8 +85,8 @@ export default function IndexFive() {
           <div className="row justify-content-center">
               <div className="col">
                   <div className="section-title text-center mb-4 pb-2">
-                      <h4 className="title mb-4">Create and sell your NFTs</h4>
-                      <p className="text-muted para-desc mb-0 mx-auto">We are a huge marketplace dedicated to connecting great artists of all Superex with their fans and unique token collectors!</p>
+                      <h4 className="title mb-4">Create and sell your Digital Resources</h4>
+                      <p className="text-muted para-desc mb-0 mx-auto">We are a huge marketplace dedicated to connecting great artists of all Pixev with their fans and unique token collectors!</p>
                   </div>
               </div>
           </div>

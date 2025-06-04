@@ -28,7 +28,7 @@ export default function IndexFour() {
         <div className="container position-relative" style={{zIndex:'1'}}>
             <div className="bg-half-100 rounded-md shadow-sm position-relative overflow-hidden">
                 <div className="bg-video-wrapper">
-                    <iframe src="https://player.vimeo.com/video/502163294?background=1&autoplay=1&loop=1&byline=0&title=0" title='superex'></iframe>
+                    <iframe src="https://player.vimeo.com/video/502163294?background=1&autoplay=1&loop=1&byline=0&title=0" title='pixev'></iframe>
                 </div>
                 <div className="bg-overlay bg-linear-gradient-2"></div>
                 <div className="row justify-content-center my-5">
@@ -101,7 +101,7 @@ export default function IndexFour() {
                 <div className="col-12">
                     <div className="section-title text-center mb-4 pb-2">
                         <h4 className="title mb-2">Popular Collection</h4>
-                        <p className="text-muted mb-0">Best Collection of the week's NFTs</p>
+                        <p className="text-muted mb-0">Best Collection of the week's digital resources</p>
                     </div>
                 </div>
             </div>

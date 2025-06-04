@@ -1,14 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { useUser } from '../contexts/UserContext'
 
-import logoDark from '../assets/images/logo-dark.png'
-import logoLight from '../assets/images/logo-light.png'
-import logoWhite from '../assets/images/logo-white.png'
-import client1 from '../assets/images/client/01.jpg'
+import logopixel from '../assets/images/logopixel.svg'
 import Modal from 'react-bootstrap/Modal';
 import mataMask from '../assets/images/wallet/metamask.5801d957d27c65deeef0.png'
-
-import { ethers } from "ethers";
 
 export default function Navbar({navlight, gradient}) {
     const [show, setShow] = useState(false);
@@ -16,13 +12,9 @@ export default function Navbar({navlight, gradient}) {
     let [submenu, setSubManu] = useState();
     let [toggle, setToggle] = useState(false)
     let [search, setSearch] = useState(false)
-    let [user, setUser] = useState(false)
+    let [userDropdown, setUserDropdown] = useState(false)
     let [scrolling, setScrolling] = useState(false);
-
-    const [data, setdata] = useState({
-        address: "",
-        Balance: null,
-    });
+      const { user, logout } = useUser();
 
     let current = window.location.pathname
     let searchRef = useRef(null)
@@ -35,81 +27,49 @@ export default function Navbar({navlight, gradient}) {
         const handleScroll = () => {
             const isScrolling = window.scrollY > 50;
             setScrolling(isScrolling);
-        };
-
-        const searchOutClick = (event) =>{
+        };        const searchOutClick = (event) =>{
             if(searchRef.current && !searchRef.current.contains(event.target)) {
                 setSearch(false)
             }
-        }
+        };
 
         const userOutClick = (event) => {
             if(userRef.current && !userRef.current.contains(event.target)){
-                setUser(false)
+                setUserDropdown(false)
             }
-        }
+        };
 
         window.addEventListener('scroll', handleScroll);
         window.addEventListener('click', searchOutClick)
         window.addEventListener('click', userOutClick)
         window.scrollTo(0, 0)
-        
-
-        return()=>{
+            return()=>{
             window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('click', searchOutClick)
             window.removeEventListener('click', userOutClick)
         }
     },[current])
 
-    const btnhandler = () => {
-        if (window.ethereum) {
-            window.ethereum
-                .request({ method: "eth_requestAccounts" })
-                .then((res) =>
-                    accountChangeHandler(res[0])
-                );
-        } else {
-            setShow(true)
-        }
-    };
-
-    const getbalance = (address) => {
-        window.ethereum
-            .request({
-                method: "eth_getBalance",
-                params: [address, "latest"],
-            })
-            .then((balance) => {
-                setdata({
-                    Balance:
-                        ethers.utils.formatEther(balance),
-                });
-            });
-    };
-
-    const accountChangeHandler = (account) => {
-        setdata({
-            address: account,
-        });
-        getbalance(account);
+    const handleLogout = () => {
+        logout();
+        setUserDropdown(false);
+        window.location.href = '/';
     };
 
   return (
         <header id="topnav" className={`defaultscroll sticky ${scrolling ? 'nav-sticky' : ''} ${gradient ? 'gradient' : ''}`}>
-            <div className="container">
-                {navlight ? (
+            <div className="container">                {navlight ? (
                     <Link className="logo" to="/">
                         <span className="logo-light-mode">
-                            <img src={logoDark} height="26" className="l-dark" alt=""/>
-                            <img src={logoWhite} height="26" className="l-light" alt=""/>
+                            <img src={logopixel} height="26" className="l-dark" alt=""/>
+                            <img src={logopixel} height="26" className="l-light" alt=""/>
                         </span>
-                        <img src={logoLight} height="26" className="logo-dark-mode" alt=""/>
+                        <img src={logopixel} height="26" className="logo-dark-mode" alt=""/>
                     </Link>
                     ) : (
                         <Link className="logo" to="/">
-                        <img src={logoDark} height="26" className="logo-light-mode" alt=""/>
-                        <img src={logoLight} height="26" className="logo-dark-mode" alt=""/>
+                        <img src={logopixel} height="26" className="logo-light-mode" alt=""/>
+                        <img src={logopixel} height="26" className="logo-dark-mode" alt=""/>
                     </Link>
                 )}
                 
@@ -155,50 +115,51 @@ export default function Navbar({navlight, gradient}) {
                                     </div>
                                 </div>
                             )}
-                        </div>
-                    </li>
+                        </div>                    </li>
 
-                    <li className="list-inline-item mb-0 me-1">
-                        <Link id="connectWallet" onClick={()=>btnhandler()}>
-                            <span className="btn-icon-dark"><span className="btn btn-icon btn-pills btn-primary"><i className="uil uil-wallet fs-6"></i></span></span>
-                            <span className="btn-icon-light"><span className="btn btn-icon btn-pills btn-light"><i className="uil uil-wallet fs-6"></i></span></span>
-                        </Link>
-                    </li>
-                    
-                    <li className="list-inline-item mb-0" ref={userRef}>
-                        <div className="dropdown dropdown-primary">
-                            <button type="button" className="btn btn-pills dropdown-toggle p-0" onClick={()=>setUser(!user)}><img src={client1} className="rounded-pill avatar avatar-sm-sm" alt=""/></button>
-                            {user && (
-                                <div className="dropdown-menu dd-menu dropdown-menu-end bg-white shadow border-0 mt-3 pb-3 pt-0 overflow-hidden rounded d-block  end-0" style={{width:'200px'}}>
-                                    <div className="position-relative">
-                                        <div className="pt-5 pb-3 bg-gradient-primary"></div>
-                                        <div className="px-3">
-                                            <div className="d-flex align-items-end mt-n4">
-                                                <img src={client1} className="rounded-pill avatar avatar-md-sm img-thumbnail shadow-md" alt=""/>
-                                                <h6 className="text-dark fw-bold mb-0 ms-1">Calvin Carlo</h6>
-                                            </div>
-                                            <div className="mt-2">
-                                                <small className="text-start text-dark d-block fw-bold">Wallet:</small>
-                                                <div className="d-flex justify-content-between align-items-center">
-                                                    <small id="myPublicAddress" className="text-muted">qhut0...hfteh45</small>
-                                                    <Link to="" className="text-primary"><span className="uil uil-copy"></span></Link>
+                      <li className="list-inline-item mb-0" ref={userRef}>
+                        {user ? (
+                            <div className="dropdown dropdown-primary">
+                                <button type="button" className="btn btn-pills dropdown-toggle p-0" onClick={()=>setUserDropdown(!userDropdown)}>
+                                    <div className="avatar avatar-sm-sm rounded-pill bg-primary text-white d-flex align-items-center justify-content-center">
+                                        {user.name.charAt(0)}
+                                    </div>
+                                </button>
+                                {userDropdown && (
+                                    <div className="dropdown-menu dd-menu dropdown-menu-end bg-white shadow border-0 mt-3 pb-3 pt-0 overflow-hidden rounded d-block  end-0" style={{width:'200px'}}>
+                                        <div className="position-relative">
+                                            <div className="pt-5 pb-3 bg-gradient-primary"></div>
+                                            <div className="px-3">
+                                                <div className="d-flex align-items-end mt-n4">
+                                                    <div className="avatar avatar-md-sm rounded-pill bg-white text-primary d-flex align-items-center justify-content-center shadow-md">
+                                                        {user.name.charAt(0)}
+                                                    </div>
+                                                    <h6 className="text-dark fw-bold mb-0 ms-1">{user.name}</h6>
+                                                </div>
+                                                <div className="mt-2">
+                                                    <small className="text-start text-dark d-block fw-bold">Email:</small>
+                                                    <small className="text-muted">{user.email}</small>
+                                                </div>
+                                                
+                                                <div className="mt-2">
+                                                    <small className="text-dark">Plan: <span className="text-primary fw-bold">{user.plan}</span></small>
                                                 </div>
                                             </div>
-                                            
-                                            <div className="mt-2">
-                                                <small className="text-dark">Balance: <span className="text-primary fw-bold">0.00045ETH</span></small>
-                                            </div>
+                                        </div>
+                                        <div className="mt-2">
+                                            <Link className="dropdown-item small fw-semibold text-dark d-flex align-items-center" to="/wallet"><span className="mb-0 d-inline-block me-1"><i className="uil uil-user align-middle h6 mb-0 me-1"></i></span> My Account</Link>
+                                            <Link className="dropdown-item small fw-semibold text-dark d-flex align-items-center" to="/creator-profile-edit"><span className="mb-0 d-inline-block me-1"><i className="uil uil-cog align-middle h6 mb-0 me-1"></i></span> Settings</Link>
+                                            <div className="dropdown-divider border-top"></div>
+                                            <button className="dropdown-item small fw-semibold text-dark d-flex align-items-center" onClick={handleLogout}><span className="mb-0 d-inline-block me-1"><i className="uil uil-sign-out-alt align-middle h6 mb-0 me-1"></i></span> Logout</button>
                                         </div>
                                     </div>
-                                    <div className="mt-2">
-                                        <Link className="dropdown-item small fw-semibold text-dark d-flex align-items-center" to="/creator-profile"><span className="mb-0 d-inline-block me-1"><i className="uil uil-user align-middle h6 mb-0 me-1"></i></span> Profile</Link>
-                                        <Link className="dropdown-item small fw-semibold text-dark d-flex align-items-center" to="/creator-profile-edit"><span className="mb-0 d-inline-block me-1"><i className="uil uil-cog align-middle h6 mb-0 me-1"></i></span> Settings</Link>
-                                        <div className="dropdown-divider border-top"></div>
-                                        <Link className="dropdown-item small fw-semibold text-dark d-flex align-items-center" to="/lock-screen"><span className="mb-0 d-inline-block me-1"><i className="uil uil-sign-out-alt align-middle h6 mb-0 me-1"></i></span> Logout</Link>
-                                    </div>
-                                </div>
-                            )}
-                        </div>
+                                )}
+                            </div>
+                        ) : (
+                            <Link to="/login" className="btn btn-pills btn-primary">
+                                <i className="uil uil-user me-1"></i>Login
+                            </Link>
+                        )}
                     </li>
                 </ul>
         
@@ -215,37 +176,35 @@ export default function Navbar({navlight, gradient}) {
                                 <li className={`ms-0 ${manu === '/index-five' ? 'active' : ''}`}><Link to="/index-five" className="sub-menu-item">Home Five</Link></li>
                             </ul>
                         </li>
-                        
-                        <li className={`has-submenu parent-parent-menu-item ${['/explore-item', '/explore-one', '/explore-two', '/explore-three','/explore-four','/auction','/item-detail-one','/item-detail-two'].includes(manu) ? 'active' : ''}`}>
-                            <Link to="#" onClick={()=>setSubManu(submenu === '/explore-item' ? '' : '/explore-item')}>Explore</Link><span className="menu-arrow"></span>
+                          <li className={`has-submenu parent-parent-menu-item ${['/explore-item', '/explore-one', '/explore-two', '/explore-three','/explore-four','/auction','/item-detail-one','/item-detail-two'].includes(manu) ? 'active' : ''}`}>
+                            <Link to="#" onClick={()=>setSubManu(submenu === '/explore-item' ? '' : '/explore-item')}>Browse Resources</Link><span className="menu-arrow"></span>
                             <ul className={`submenu ${['/explore-item', '/explore-one', '/explore-two', '/explore-three','/explore-four','/auction','/item-detail-one','/item-detail-two'].includes(submenu) ? 'open' : ''}`}>
-                                <li className={`ms-0 ${manu === '/explore-one' ? 'active' : ''}`}><Link to="/explore-one" className="sub-menu-item"> Explore One</Link></li>
-                                <li className={`ms-0 ${manu === '/explore-two' ? 'active' : ''}`}><Link to="/explore-two" className="sub-menu-item"> Explore Two</Link></li>
-                                <li className={`ms-0 ${manu === '/explore-three' ? 'active' : ''}`}><Link to="/explore-three" className="sub-menu-item"> Explore Three</Link></li>
-                                <li className={`ms-0 ${manu === '/explore-four' ? 'active' : ''}`}><Link to="/explore-four" className="sub-menu-item"> Explore Four</Link></li>
-                                <li className={`ms-0 ${manu === '/auction' ? 'active' : ''}`}><Link to="/auction" className="sub-menu-item">Live Auction</Link></li>
-                                <li className={`ms-0 ${manu === '/item-detail-one' ? 'active' : ''}`}><Link to="/item-detail-one" className="sub-menu-item"> Item Detail One</Link></li>
-                                <li className={`ms-0 ${manu === '/item-detail-two' ? 'active' : ''}`}><Link to="/item-detail-two" className="sub-menu-item"> Item Detail Two</Link></li>
+                                <li className={`ms-0 ${manu === '/explore-one' ? 'active' : ''}`}><Link to="/explore-one" className="sub-menu-item"> All Categories</Link></li>
+                                <li className={`ms-0 ${manu === '/explore-two' ? 'active' : ''}`}><Link to="/explore-two" className="sub-menu-item"> Web Templates</Link></li>
+                                <li className={`ms-0 ${manu === '/explore-three' ? 'active' : ''}`}><Link to="/explore-three" className="sub-menu-item"> Graphics & Design</Link></li>
+                                <li className={`ms-0 ${manu === '/explore-four' ? 'active' : ''}`}><Link to="/explore-four" className="sub-menu-item"> Stock Photos</Link></li>
+                                <li className={`ms-0 ${manu === '/auction' ? 'active' : ''}`}><Link to="/auction" className="sub-menu-item">Trending Assets</Link></li>
+                                <li className={`ms-0 ${manu === '/item-detail-one' ? 'active' : ''}`}><Link to="/item-detail-one" className="sub-menu-item"> Asset Preview</Link></li>
+                                <li className={`ms-0 ${manu === '/item-detail-two' ? 'active' : ''}`}><Link to="/item-detail-two" className="sub-menu-item"> Resource Details</Link></li>
                             </ul>
-                        </li>
-                        
-                        <li className={manu === '/activity' ? 'active' : ''}><Link to="/activity" className="sub-menu-item"> Activity</Link></li>
+                        </li>                          <li className={manu === '/activity' ? 'active' : ''}><Link to="/activity" className="sub-menu-item"> My Downloads</Link></li>
 
-                        <li className={manu === '/wallet' ? 'active' : ''}><Link to="/wallet" className="sub-menu-item">Wallet</Link></li>
+                        <li className={manu === '/pricing' ? 'active' : ''}><Link to="/pricing" className="sub-menu-item">Pricing</Link></li>
+
+                        <li className={manu === '/wallet' ? 'active' : ''}><Link to="/wallet" className="sub-menu-item">My Account</Link></li>
 
                         <li className={`has-submenu parent-parent-menu-item ${['/page-item','/aboutus','/creator-item','/creators','/creator-profile','/creator-profile-edit','/become-creator','/collections','/blog-item','/blogs','/blog-sidebar','/blog-detail','/auth-item','/login','/signup','/reset-password','/lock-screen','/special-item','/comingsoon','/maintenance','/error','/help-item','/helpcenter-overview','/helpcenter-faqs','/helpcenter-guides','/helpcenter-support-request','/upload-work','/terms','/privacy','/changelog'].includes(manu) ? 'active' : ''}`}>
                             <Link to="#" onClick={()=>setSubManu(submenu === '/page-item' ? '' : '/page-item')}>Pages</Link><span className="menu-arrow"></span>
                             <ul className={`submenu ${['/page-item','/aboutus','/creator-item','/creators','/creator-profile','/creator-profile-edit','/become-creator','/collections','/blog-item','/blogs','/blog-sidebar','/blog-detail','/auth-item','/login','/signup','/reset-password','/lock-screen','/special-item','/comingsoon','/maintenance','/error','/help-item','/helpcenter-overview','/helpcenter-faqs','/helpcenter-guides','/helpcenter-support-request','/upload-work','/terms','/privacy','/changelog'].includes(submenu) ? 'open' : ''}`}>
-                                <li><Link to="/aboutus" className="sub-menu-item">About Us</Link></li>
-                                <li className={`has-submenu parent-menu-item ms-0 ${['/creator-item','/creators','/creator-profile','/creator-profile-edit','/become-creator'].includes(manu) ? 'active' : ''}`}><Link to="#" onClick={()=>setSubManu(submenu === '/creator-item' ? '' : '/creator-item')}> Creator </Link><span className="submenu-arrow"></span>
+                                <li><Link to="/aboutus" className="sub-menu-item">About Us</Link></li>                                <li className={`has-submenu parent-menu-item ms-0 ${['/creator-item','/creators','/creator-profile','/creator-profile-edit','/become-creator'].includes(manu) ? 'active' : ''}`}><Link to="#" onClick={()=>setSubManu(submenu === '/creator-item' ? '' : '/creator-item')}> Authors </Link><span className="submenu-arrow"></span>
                                     <ul className={`submenu ${['/creator-item','/creators','/creator-profile','/creator-profile-edit','/become-creator'].includes(submenu) ? 'open' : ''}`}>
-                                        <li className={`ms-0 ${manu === '/creators' ? 'active' : ''}`}><Link to="/creators" className="sub-menu-item"> Creators</Link></li>
-                                        <li className={`ms-0 ${manu === '/creator-profile' ? 'active' : ''}`}><Link to="/creator-profile" className="sub-menu-item"> Creator Profile</Link></li>
-                                        <li className={`ms-0 ${manu === '/creator-profile-edit' ? 'active' : ''}`}><Link to="/creator-profile-edit" className="sub-menu-item"> Profile Edit</Link></li>
-                                        <li className={`ms-0 ${manu === '/become-creator' ? 'active' : ''}`}><Link to="/become-creator" className="sub-menu-item"> Become Creator</Link></li>
+                                        <li className={`ms-0 ${manu === '/creators' ? 'active' : ''}`}><Link to="/creators" className="sub-menu-item"> All Authors</Link></li>
+                                        <li className={`ms-0 ${manu === '/creator-profile' ? 'active' : ''}`}><Link to="/creator-profile" className="sub-menu-item"> Author Profile</Link></li>
+                                        <li className={`ms-0 ${manu === '/creator-profile-edit' ? 'active' : ''}`}><Link to="/creator-profile-edit" className="sub-menu-item"> Profile Settings</Link></li>
+                                        <li className={`ms-0 ${manu === '/become-creator' ? 'active' : ''}`}><Link to="/become-creator" className="sub-menu-item"> Become Author</Link></li>
                                     </ul>
                                 </li>
-                                <li className={`ms-0 ${manu === '/collections' ? 'active' : ''}`}><Link to="/collections" className="sub-menu-item">Collections</Link></li>
+                                <li className={`ms-0 ${manu === '/collections' ? 'active' : ''}`}><Link to="/collections" className="sub-menu-item">Resource Bundles</Link></li>
                                 <li className={`has-submenu parent-menu-item ms-0 ${['/blog-item','/blogs','/blog-sidebar','/blog-detail'].includes(manu) ? 'active' : ''}`}><Link to="#" onClick={()=>setSubManu(submenu === '/blog-item' ? '' : '/blog-item')}> Blog </Link><span className="submenu-arrow"></span>
                                     <ul className={`submenu ${['/blog-item','/blogs','/blog-sidebar','/blog-detail'].includes(submenu) ? 'open' : ''}`}>
                                         <li className={`ms-0 ${manu === '/blogs' ? 'active' : ''}`}><Link to="/blogs" className="sub-menu-item"> Blogs</Link></li>
@@ -272,11 +231,11 @@ export default function Navbar({navlight, gradient}) {
                                     <ul className={`submenu ${['/help-item','/helpcenter-overview','/helpcenter-faqs','/helpcenter-guides','/helpcenter-support-request'].includes(submenu) ? 'open' : ''}`}>
                                         <li className={`ms-0 ${manu === '/helpcenter-overview' ? 'active' : ''}`}><Link to="/helpcenter-overview" className="sub-menu-item"> Overview</Link></li>
                                         <li className={`ms-0 ${manu === '/helpcenter-faqs' ? 'active' : ''}`}><Link to="/helpcenter-faqs" className="sub-menu-item"> FAQs</Link></li>
-                                        <li className={`ms-0 ${manu === '/helpcenter-guides' ? 'active' : ''}`}><Link to="/helpcenter-guides" className="sub-menu-item"> Guides</Link></li>
+                                        <li className={`ms-0 ${manu === '/helpcenter-guides' ? 'active' : ''}`}><Link to="/helpcenter-guides" className="sub-menu-item"> Resource Guides</Link></li>
                                         <li className={`ms-0 ${manu === '/helpcenter-support-request' ? 'active' : ''}`}><Link to="/helpcenter-support-request" className="sub-menu-item"> Support</Link></li>
                                     </ul> 
                                 </li>
-                                <li className={`ms-0 ${manu === '/upload-work' ? 'active' : ''}`}><Link to="/upload-work" className="sub-menu-item">Upload Works</Link></li>
+                                <li className={`ms-0 ${manu === '/upload-work' ? 'active' : ''}`}><Link to="/upload-work" className="sub-menu-item">Submit Resources</Link></li>
                                 <li className={`ms-0 ${manu === '/terms' ? 'active' : ''}`}><Link to="/terms" className="sub-menu-item">Terms Policy</Link></li>
                                 <li className={`ms-0 ${manu === '/privacy' ? 'active' : ''}`}><Link to="/privacy" className="sub-menu-item">Privacy Policy</Link></li>
                             </ul>

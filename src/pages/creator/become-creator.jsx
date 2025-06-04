@@ -22,9 +22,9 @@ export default function BecomeCreator() {
 
               <div className="col-lg-8 col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
                   <div className="title-heading">
-                      <h6>Join with Superex!</h6>
+                      <h6>Join with Pixev!</h6>
                       <h5 className="heading fw-bold title-dark mb-4">Start Your <br/><span className="text-gradient-primary">Journey</span></h5>
-                      <p className="text-muted mb-0 para-desc">We are a huge marketplace dedicated to connecting great artists of all Superex with their fans and unique token collectors!</p>
+                      <p className="text-muted mb-0 para-desc">We are a huge marketplace dedicated to connecting great artists of all Pixev with their fans and unique token collectors!</p>
                   </div>
               </div>
           </div>
@@ -43,7 +43,7 @@ export default function BecomeCreator() {
             <div className="col">
                 <div className="section-title text-center mb-4 pb-2">
                     <h4 className="title mb-3">Fill the form</h4>
-                    <p className="text-muted mb-0 para-desc mx-auto">We are a huge marketplace dedicated to connecting great artists of all Superex with their fans and unique token collectors!</p>
+                    <p className="text-muted mb-0 para-desc mx-auto">We are a huge marketplace dedicated to connecting great designers and developers of all Pixev with their customers and digital resource collectors!</p>
                 </div>
             </div>
         </div>
@@ -52,10 +52,9 @@ export default function BecomeCreator() {
                 <div className="card p-4 rounded-md shadow">
                     <div className="row">
                         <div className="col-md-5">
-                            <div className="d-grid">
-                                <p className="fw-semibold">Upload your ART here, Please click "Upload Image" Button.</p>
+                            <div className="d-grid">                                <p className="fw-semibold">Upload your DIGITAL RESOURCE here, Please click "Upload Files" Button.</p>
                                 <div className="preview-box d-block justify-content-center rounded-md shadow overflow-hidden bg-light text-muted p-2 text-center small">
-                                {file === '' ? 'Supports JPG, PNG and MP4 videos. Max file size : 10MB.' : (
+                                {file === '' ? 'Supports ZIP, PSD, AI, Sketch files. Max file size : 50MB.' : (
                                   <img src={file} className="img-fluid" alt=""/>
                                 )}
                                 </div>
@@ -76,25 +75,22 @@ export default function BecomeCreator() {
                                         <div className="col-12 mb-4">
                                             <label className="form-label">URL</label>
                                             <div className="form-icon">
-                                                <input name="url" id="superex-url" type="url" className="form-control" placeholder="https://superex.exe/streetboyyy"/>
+                                                <input name="url" id="pixev-url" type="url" className="form-control" placeholder="https://pixev.exe/streetboyyy"/>
                                             </div>
-                                        </div>
-        
-                                        <div className="col-12 mb-4">
+                                        </div>                                        <div className="col-12 mb-4">
                                             <label className="form-label">Bio</label>
-                                            <textarea name="comments" id="comments" rows="3" className="form-control" placeholder="I'm a Digital Artist. Digital Art with over 3 years of experience. Experienced with all stages of the Art cycle for dynamic projects."></textarea>
+                                            <textarea name="comments" id="comments" rows="3" className="form-control" placeholder="I'm a Digital Designer. Specializing in web design, UI/UX, and digital assets with over 3 years of experience. Experienced with all stages of the design cycle for creative projects."></textarea>
                                         </div>
 
                                         <div className="col-12 mb-4">
-                                            <label className="form-label d-block">Twitter Account</label>
-                                            <small className="text-muted d-block">Link your twitter account to gain more trust on the Marketplace</small>
-                                            <div className="form-icon mt-3">
-                                                <input name="url" id="twitter-url" type="url" className="form-control" placeholder="https://twitter.com/streetboyyy"/>
+                                            <label className="form-label d-block">Portfolio Website</label>
+                                            <small className="text-muted d-block">Link your portfolio website to showcase your work</small>                                            <div className="form-icon mt-3">
+                                                <input name="url" id="portfolio-url" type="url" className="form-control" placeholder="https://yourportfolio.com"/>
                                             </div>
                                         </div>
 
                                         <div className="col-lg-12">
-                                            <button type="submit" className="btn btn-primary rounded-md">Create Your Account</button>
+                                            <button type="submit" className="btn btn-primary rounded-md">Create Designer Account</button>
                                         </div>
                                     </div>
                                 </form>

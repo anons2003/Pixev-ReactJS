@@ -7,12 +7,12 @@ import Navbar from '../../components/navbar'
 import Subscription from '../../components/subscription'
 import Footer from '../../components/footer'
 
-import { nftData } from '../../data/data'
+import { resourceData } from '../../data/data'
 
 import Select from 'react-select';
 
 export default function ExploreTwo() {
-  const [productData, setProductData] = useState(nftData);
+  const [productData, setProductData] = useState(resourceData);
     
   useEffect(()=>{
       const interval = setTimeout(()=>{
@@ -22,7 +22,7 @@ export default function ExploreTwo() {
   })
 
   const remainingDays = () => {
-      const formattedData = nftData.map((item) => ({
+      const formattedData = resourceData.map((item) => ({
           ...item,
           remaining: calculateDays(item.date),
       }));
@@ -41,17 +41,16 @@ export default function ExploreTwo() {
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       return { hours, minutes, seconds, days }
   }
-
   const product = [
-    { value: '3', label: 'Auction Product' },
-    { value: '1', label: 'On Sale' },
-    { value: '3', label: 'Offers' },
+    { value: '3', label: 'Premium Resources' },
+    { value: '1', label: 'Most Popular' },
+    { value: '2', label: 'Recently Added' },
   ]
   const product2 = [
-    { value: '1', label: 'Games' },
-    { value: '2', label: 'Music' },
-    { value: '3', label: 'Videos' },
-    { value: '4', label: 'Memes' },
+    { value: '1', label: 'Templates' },
+    { value: '2', label: 'Graphics' },
+    { value: '3', label: 'Photos' },
+    { value: '4', label: 'Fonts' },
   ]
   return (
     <>
@@ -60,10 +59,9 @@ export default function ExploreTwo() {
         <div className="bg-overlay bg-gradient-overlay-2"></div>
         <div className="container">
             <div className="row mt-5 justify-content-center">
-                <div className="col-12">
-                    <div className="title-heading text-center">
-                        <h5 className="heading fw-semibold sub-heading text-white title-dark">Marketplace</h5>
-                        <p className="text-white-50 para-desc mx-auto mb-0">Explore the latest NFTs digital product</p>
+                <div className="col-12">                    <div className="title-heading text-center">
+                        <h5 className="heading fw-semibold sub-heading text-white title-dark">Digital Resources</h5>
+                        <p className="text-white-50 para-desc mx-auto mb-0">Explore premium digital resources and templates</p>
                     </div>
                 </div>
             </div>
@@ -91,7 +89,7 @@ export default function ExploreTwo() {
                                                 <div className="col-lg-3 col-md-6">
                                                     <div className="filter-search-form position-relative filter-border">
                                                         <i className="uil uil-search icons"></i>
-                                                        <input name="name" type="text" id="search-keyword" className="form-control filter-input-box bg-light border-0" placeholder="Search your keaywords"/>
+                                                        <input name="name" type="text" id="search-keyword" className="form-control filter-input-box bg-light border-0" placeholder="Search resources..."/>
                                                     </div>
                                                 </div>
 
@@ -149,10 +147,8 @@ export default function ExploreTwo() {
                             <Link to={`/item-detail-one/${item.id}`}><img src={item.product} className="img-fluid" alt=""/></Link>
                             <div className="position-absolute top-0 start-0 m-2">
                                 <Link to="#" className="badge badge-link bg-primary">{item.tag}</Link>
-                            </div>
-
-                            <div className="position-absolute top-0 end-0 m-2">
-                                <Link to={`/item-detail-one/${item.id}`} className="btn btn-pills btn-icon"><i className="uil uil-shopping-cart-alt"></i></Link>
+                            </div>                            <div className="position-absolute top-0 end-0 m-2">
+                                <Link to={`/item-detail-one/${item.id}`} className="btn btn-pills btn-primary btn-sm">Premium</Link>
                             </div>
                             {item.showDate && (
                                 <div className="position-absolute bottom-0 start-0 m-2 bg-gradient-primary text-white title-dark rounded-pill px-3">
@@ -162,11 +158,9 @@ export default function ExploreTwo() {
                         </div>
 
                         <div className="card-body content position-relative p-0 mt-3">
-                            <Link to={`/item-detail-one/${item.id}`} className="title text-dark h6">{item.name}</Link>
-
-                            <div className="d-flex justify-content-between mt-2">
-                                <small className="rate fw-bold">{item.value}</small>
-                                <small className="text-dark fw-bold">1 out of 10</small>
+                            <Link to={`/item-detail-one/${item.id}`} className="title text-dark h6">{item.name}</Link>                            <div className="d-flex justify-content-between mt-2">
+                                <small className="rate fw-bold">Premium</small>
+                                <small className="text-dark fw-bold">{item.category}</small>
                             </div>
                         </div>
                         </div>

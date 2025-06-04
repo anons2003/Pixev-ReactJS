@@ -4,7 +4,7 @@ import { Link,useParams } from 'react-router-dom'
 import Navbar from '../../components/navbar'
 import Footer from '../../components/footer'
 
-import logoIcon from '../../assets/images/icon-logo-48.png'
+import logopixel from '../../assets/images/logopixel.svg'
 import blog from '../../assets/images/blog/single.jpg'
 import blog2 from '../../assets/images/blog/10.jpg'
 
@@ -27,14 +27,14 @@ export default function BlogDetail() {
           <div className="row mt-5 mt-lg-0 justify-content-center">
               <div className="col-lg-8">
                   <div className="title-heading">
-                      <h4 className="heading sub-heading fw-bold mb-3">{data?.title ? data.title : 'Heres a quick guide about how to make money selling your artworks with Superex!'}</h4>
-                      <p className="text-muted fs-5 mb-0">The NFT space has made unprecedented progress since we first launched Superex in late 2021, as it hit several major milestones in the past…</p>
+                      <h4 className="heading sub-heading fw-bold mb-3">{data?.title ? data.title : 'Heres a quick guide about how to make money selling your artworks with Pixev!'}</h4>
+                      <p className="text-muted fs-5 mb-0">The Digital Resources space has made unprecedented progress since we first launched Pixev in late 2021, as it hit several major milestones in the past…</p>
                   
                       <div className="d-flex align-items-center mt-4">
-                          <img src={logoIcon} className="rounded-pill shadow-md" alt=""/>
+                          <img src={logopixel} className="rounded-pill shadow-md" alt=""/>
 
                           <div className="content ms-2">
-                              <Link to="#" className="h6 text-dark d-block mb-0">Superex NFT</Link>
+                              <Link to="#" className="h6 text-dark d-block mb-0">Pixev Digital Resources</Link>
                               <small className="text-muted mb-0">{data?.date ? data.date : '19th June 2022'}, 8 min read</small>
                           </div>
                       </div>

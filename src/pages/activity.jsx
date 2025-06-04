@@ -27,7 +27,7 @@ export default function Activity() {
             <div className="position-middle-bottom">
                 <nav aria-label="breadcrumb" className="d-block">
                     <ul className="breadcrumb breadcrumb-muted mb-0 p-0">
-                        <li className="breadcrumb-item"><Link to="/">Superex</Link></li>
+                        <li className="breadcrumb-item"><Link to="/">Pixev</Link></li>
                         <li className="breadcrumb-item active" aria-current="page">FAQS</li>
                     </ul>
                 </nav>

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { nftData } from '../../data/data'
+import { resourceData } from '../../data/data'
 
 export default function ProductOne({filter}) {
-    const [productData, setProductData] = useState(nftData);
+    const [productData, setProductData] = useState(resourceData);
     
     useEffect(()=>{
         const interval = setTimeout(()=>{
@@ -13,7 +13,7 @@ export default function ProductOne({filter}) {
     })
 
     const remainingDays = () => {
-        const formattedData = nftData.map((item) => ({
+        const formattedData = resourceData.map((item) => ({
             ...item,
             remaining: calculateDays(item.date),
         }));

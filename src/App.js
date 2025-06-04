@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './assets/scss/style.scss'
 import './assets/css/materialdesignicons.min.css'
+import { UserProvider } from './contexts/UserContext';
 
 import Index from './pages/index';
 import IndexTwo from './pages/index/index-two';
@@ -42,54 +43,57 @@ import UploadWork from './pages/upload-work';
 import Terms from './pages/terms';
 import Privacy from './pages/privacy';
 import Contact from './pages/contact';
+import Pricing from './pages/pricing';
 
 
 function App() {
 
 
   return (
-    <Routes>
-      <Route path="/" element={<Index/>}/>
-      <Route path="/index-two" element={<IndexTwo/>}/>
-      <Route path="/index-three" element={<IndexThree/>}/>
-      <Route path="/index-four" element={<IndexFour/>}/>
-      <Route path="/index-five" element={<IndexFive/>}/>
-      <Route path='/explore-one' element={<ExploreOne/>}/>
-      <Route path='/explore-two' element={<ExploreTwo/>}/>
-      <Route path='/explore-three' element={<ExploreThree/>}/>
-      <Route path='/explore-four' element={<ExploreFour/>}/>
-      <Route path='/auction' element={<Auction/>}/>
-      <Route path='/item-detail-one' element={<ItemDetailOne/>}/>
-      <Route path='/item-detail-one/:id' element={<ItemDetailOne/>}/>
-      <Route path='/item-detail-Two' element={<ItemDetailTwo/>}/>
-      <Route path='/activity' element={<Activity/>}/>
-      <Route path='/wallet' element={<Wallet/>}/>
-      <Route path='/aboutus' element={<Aboutus/>}/>
-      <Route path='/creators' element={<Creators/>}/>
-      <Route path='/creator-profile' element={<CreatorProfile/>}/>
-      <Route path='/creator-profile-edit' element={<CreatorProfileEdit/>}/>
-      <Route path='/become-creator' element={<BecomeCreator/>}/>
-      <Route path='/collections' element={<Collections/>}/>
-      <Route path='/blogs' element={<Blogs/>}/>
-      <Route path='/blog-sidebar' element={<BlogSidebar/>}/>
-      <Route path='/blog-detail' element={<BlogDetail/>}/>
-      <Route path='/blog-detail/:id' element={<BlogDetail/>}/>
-      <Route path='/login' element={<Login/>}/>
-      <Route path='/signup' element={<Signup/>}/>
-      <Route path='/reset-password' element={<ResetPassword/>}/>
-      <Route path='/lock-screen' element={<LockScreen/>}/>
-      <Route path='/comingsoon' element={<Comingsoon/>}/>
-      <Route path='/maintenance' element={<Maintenance/>}/>
-      <Route path='/error' element={<Error/>}/>
-      <Route path='/helpcenter-overview' element={<HelpcenterOverview/>}/>
-      <Route path='/helpcenter-faqs' element={<HelpcenterFaqs/>}/>
-      <Route path='/helpcenter-guides' element={<HelpcenterGuides/>}/>
-      <Route path='/helpcenter-support-request' element={<HelpcenterSupportRequest/>}/>
-      <Route path='/upload-work' element={<UploadWork/>}/>
-      <Route path='/terms' element={<Terms/>}/>
-      <Route path='/privacy' element={<Privacy/>}/>
-      <Route path='/contact' element={<Contact/>}/>
-    </Routes>
+    <UserProvider>
+      <Routes>
+        <Route path="/" element={<Index/>}/>
+        <Route path="/index-two" element={<IndexTwo/>}/>
+        <Route path="/index-three" element={<IndexThree/>}/>
+        <Route path="/index-four" element={<IndexFour/>}/>
+        <Route path="/index-five" element={<IndexFive/>}/>
+        <Route path='/explore-one' element={<ExploreOne/>}/>
+        <Route path='/explore-two' element={<ExploreTwo/>}/>
+        <Route path='/explore-three' element={<ExploreThree/>}/>
+        <Route path='/explore-four' element={<ExploreFour/>}/>
+        <Route path='/auction' element={<Auction/>}/>
+        <Route path='/item-detail-one' element={<ItemDetailOne/>}/>
+        <Route path='/item-detail-one/:id' element={<ItemDetailOne/>}/>
+        <Route path='/item-detail-Two' element={<ItemDetailTwo/>}/>      <Route path='/activity' element={<Activity/>}/>
+        <Route path='/pricing' element={<Pricing/>}/>
+        <Route path='/wallet' element={<Wallet/>}/>
+        <Route path='/aboutus' element={<Aboutus/>}/>
+        <Route path='/creators' element={<Creators/>}/>
+        <Route path='/creator-profile' element={<CreatorProfile/>}/>
+        <Route path='/creator-profile-edit' element={<CreatorProfileEdit/>}/>
+        <Route path='/become-creator' element={<BecomeCreator/>}/>
+        <Route path='/collections' element={<Collections/>}/>
+        <Route path='/blogs' element={<Blogs/>}/>
+        <Route path='/blog-sidebar' element={<BlogSidebar/>}/>
+        <Route path='/blog-detail' element={<BlogDetail/>}/>
+        <Route path='/blog-detail/:id' element={<BlogDetail/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/signup' element={<Signup/>}/>
+        <Route path='/reset-password' element={<ResetPassword/>}/>
+        <Route path='/lock-screen' element={<LockScreen/>}/>
+        <Route path='/comingsoon' element={<Comingsoon/>}/>
+        <Route path='/maintenance' element={<Maintenance/>}/>
+        <Route path='/error' element={<Error/>}/>
+        <Route path='/helpcenter-overview' element={<HelpcenterOverview/>}/>
+        <Route path='/helpcenter-faqs' element={<HelpcenterFaqs/>}/>
+        <Route path='/helpcenter-guides' element={<HelpcenterGuides/>}/>
+        <Route path='/helpcenter-support-request' element={<HelpcenterSupportRequest/>}/>
+        <Route path='/upload-work' element={<UploadWork/>}/>
+        <Route path='/terms' element={<Terms/>}/>
+        <Route path='/privacy' element={<Privacy/>}/>
+        <Route path='/contact' element={<Contact/>}/>
+      </Routes>
+    </UserProvider>
   );
 }
 

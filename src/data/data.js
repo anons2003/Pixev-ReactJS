@@ -112,49 +112,44 @@ export const createrData = [
         id: 1,
         no:'01.',
         bgImage: createrBg1,
-        image:client1,
-        name: "Steven Townsend",
-        title:'@StreetBoy',
-        value:'20.5 ETH',
+        image:client1,        name: "Steven Townsend",
+        title:'@WebDesigner',
+        value:'$2,450',
         status:'active',
     },
     {
         id: 2,
         no:'02.',
         bgImage: createrBg2,
-        image:client2,
-        name: "Tiffany Betancourt",
-        title:'@CutieGirl',
-        value:'20.5 ETH'
+        image:client2,        name: "Tiffany Betancourt",
+        title:'@UIDesigner',
+        value:'$1,890'
     },
     {
         id: 3,
         no:'03.',
         bgImage: createrBg3,
-        image:client3,
-        name: "Mari Harrington",
-        title:'@NorseQueen',
-        value:'20.5 ETH',
+        image:client3,        name: "Mari Harrington",
+        title:'@GraphicsDesigner',
+        value:'$1,675',
         status:'active',
     },
     {
         id: 4,
         no:'04.',
         bgImage: createrBg4,
-        image:client4,
-        name: "Floyd Glasgow",
-        title:'@BigBull',
-        value:'20.5 ETH',
+        image:client4,        name: "Floyd Glasgow",
+        title:'@FontDesigner',
+        value:'$1,320',
         status:'active',
     },
     {
         id: 5,
         no:'05.',
         bgImage: createrBg5,
-        image:client5,
-        name: "Donna Schultz",
-        title:'@Angel',
-        value:'20.5 ETH'
+        image:client5,        name: "Donna Schultz",
+        title:'@Photographer',
+        value:'$980'
     },
     {
         id: 6,
@@ -162,8 +157,8 @@ export const createrData = [
         bgImage: createrBg6,
         image:client6,
         name: "Joshua Morris",
-        title:'@CrazyAnyone',
-        value:'20.5 ETH'
+        title:'@VideoEditor',
+        value:'$865'
     },
     {
         id: 7,
@@ -171,8 +166,8 @@ export const createrData = [
         bgImage: createrBg7,
         image:client7,
         name: "Carl Williams",
-        title:'@LooserBad',
-        value:'20.5 ETH',
+        title:'@AudioProducer',
+        value:'$750',
         status:'active',
     },
     {
@@ -181,8 +176,8 @@ export const createrData = [
         bgImage: createrBg8,
         image:client8,
         name: "Eugene Green",
-        title:'@KristyHoney',
-        value:'20.5 ETH'
+        title:'@TemplateDesigner',
+        value:'$690'
     },
     {
         id: 9,
@@ -190,8 +185,8 @@ export const createrData = [
         bgImage: createrBg9,
         image:client9,
         name: "Julius Canale",
-        title:'@PandaOne',
-        value:'20.5 ETH',
+        title:'@IllustrationArtist',
+        value:'$580',
         status:'active',
     },
     {
@@ -200,8 +195,8 @@ export const createrData = [
         bgImage: createrBg10,
         image:client10,
         name: "Michael Williams",
-        title:'@FunnyGuy',
-        value:'20.5 ETH',
+        title:'@MotionDesigner',
+        value:'$520',
         status:'active',
     },
     {
@@ -210,8 +205,8 @@ export const createrData = [
         bgImage: createrBg11,
         image:client11,
         name: "Jacqueline Burns",
-        title:'@ButterFly',
-        value:'20.5 ETH'
+        title:'@UIKitDesigner',
+        value:'$475'
     },
     {
         id: 12,
@@ -219,13 +214,13 @@ export const createrData = [
         bgImage: createrBg12,
         image:client12,
         name: "Rosaria Vargas",
-        title:'@Princess',
-        value:'20.5 ETH',
+        title:'@BrandingSpecialist',
+        value:'$430',
         status:'active',
     },
 ]
 
-export const nftData = [
+export const resourceData = [
     {
         id: 1,
         creater1:client8,
@@ -233,13 +228,12 @@ export const nftData = [
         creater3:client6,
         createrName:'Steven Townsend',
         title:'@StreetBoy',
-        product:product1,
-        name:'Deep Sea Phantasy',
-        value:'20.5 ETH',
-        category:'games',
+        product:product1,        name:'Modern Web Design Template',
+        value:'Premium',
+        category:'templates',
         date:'March 29, 2025 6:0:0',
         showDate:true,
-        tag:'GIFs'
+        tag:'Website'
     },
     {
         id: 2,
@@ -248,13 +242,12 @@ export const nftData = [
         creater3:client3,
         createrName:'Tiffany Betancourt',
         title:'@CutieGirl',
-        product:product2,
-        name:'CyberPrimal 042 LAN',
-        value:'20.5 ETH',
-        category:'art',
+        product:product2,        name:'Premium Logo Collection',
+        value:'$39',
+        category:'graphics',
         date:'April 03, 2025 6:0:0',
         showDate:false,
-        tag:'Arts'
+        tag:'Logos'
     },
     {
         id: 3,
@@ -263,13 +256,12 @@ export const nftData = [
         creater3:client6,
         createrName:'Mari Harrington',
         title:'@NorseQueen',
-        product:product3,
-        name:'Crypto Egg Stamp #5',
-        value:'20.5 ETH',
-        category:'memes',
+        product:product3,        name:'High-Res Stock Photos Bundle',
+        value:'$19',
+        category:'photos',
         date:'April 10, 2025 6:0:0',
         showDate:false,
-        tag:'Games'
+        tag:'Photography'
     },
     {
         id: 4,
@@ -278,13 +270,12 @@ export const nftData = [
         creater3:client9,
         createrName:'Floyd Glasgow',
         title:'@BigBull',
-        product:product4,
-        name:'Colorful Abstract Painting',
-        value:'20.5 ETH',
-        category:'video',
+        product:product4,        name:'Modern UI Kit Components',
+        value:'$49',
+        category:'ui-kits',
         date:'April 18, 2025 6:0:0',
         showDate:true,
-        tag:'Memes'
+        tag:'UI Design'
     },
     {
         id: 5,
@@ -293,10 +284,9 @@ export const nftData = [
         creater3:client12,
         createrName:'Donna Schultz',
         title:'@Angel',
-        product:product5,
-        name:'Liquid Forest Princess',
-        value:'20.5 ETH',
-        category:'video',
+        product:product5,        name:'Premium Font Collection',
+        value:'$24',
+        category:'fonts',
         date:'May 01, 2025 6:0:0',
         showDate:false,
         tag:'Illustration'
@@ -308,13 +298,12 @@ export const nftData = [
         creater3:client3,
         createrName:'Joshua Morris',
         title:'@CrazyAnyone',
-        product:product6,
-        name:'Spider Eyes Modern Art',
-        value:'20.5 ETH',
-        category:'games',
+        product:product6,        name:'Business Presentation Template',
+        value:'$34',
+        category:'templates',
         date:'June 08, 2025 6:0:0',
         showDate:true,
-        tag:'GIFs'
+        tag:'Presentations'
     },
     {
         id: 7,
@@ -323,13 +312,12 @@ export const nftData = [
         creater3:client6,
         createrName:'Carl Williams',
         title:'@LooserBad',
-        product:product7,
-        name:'Synthwave Painting',
-        value:'20.5 ETH',
-        category:'art',
+        product:product7,        name:'Vector Illustration Pack',
+        value:'$29',
+        category:'graphics',
         date:'June 20, 2025 6:0:0',
         showDate:false,
-        tag:'GIFs'
+        tag:'Vectors'
     },
     {
         id: 8,
@@ -338,13 +326,12 @@ export const nftData = [
         creater3:client9,
         createrName:'Eugene Green',
         title:'@KristyHoney',
-        product:product8,
-        name:'Contemporary Abstract',
-        value:'20.5 ETH',
-        category:'music',
+        product:product8,        name:'Audio Background Music Pack',
+        value:'$19',
+        category:'audio',
         date:'July 30, 2025 6:0:0',
         showDate:false,
-        tag:'GIFs'
+        tag:'Music'
     },
     {
         id: 9,
@@ -353,13 +340,12 @@ export const nftData = [
         creater3:client12,
         createrName:'Julius Canale',
         title:'@PandaOne',
-        product:product9,
-        name:'Valkyrie Abstract Art',
-        value:'20.5 ETH',
-        category:'memes',
+        product:product9,        name:'Mobile App UI Templates',
+        value:'$45',
+        category:'ui-kits',
         date:'April 03, 2025 6:0:0',
         showDate:false,
-        tag:'Games'
+        tag:'Mobile'
     },
     {
         id: 10,
@@ -368,15 +354,13 @@ export const nftData = [
         creater3:client3,
         createrName:'Michael Williams',
         title:'@FunnyGuy',
-        product:product10,
-        name:'The girl with the firefly',
-        value:'20.5 ETH',
-        category:'art',
+        product:product10,        name:'Nature Photography Collection',
+        value:'$25',
+        category:'photos',
         date:'April 10, 2025 6:0:0',
         showDate:false,
-        tag:'GIFs'
-    },
-    {
+        tag:'Nature'
+    },    {
         id: 11,
         creater1:client4,
         creater2:client5,
@@ -384,11 +368,12 @@ export const nftData = [
         createrName:'Jacqueline Burns',
         title:'@ButterFly',
         product:product11,
-        name:'Dodo hide the seek',
-        value:'20.5 ETH',
-        category:'games',
+        name:'E-commerce Website Template',
+        value:'Premium',
+        category:'templates',
         date:'April 18, 2025 6:0:0',
-        showDate:false
+        showDate:false,
+        tag:'E-commerce'
     },
     {
         id: 12,
@@ -398,11 +383,12 @@ export const nftData = [
         createrName:'Rosaria Vargas',
         title:'@Princess',
         product:product12,
-        name:'Pinky Ocean',
-        value:'20.5 ETH',
-        category:'music',
+        name:'Cinematic Audio Pack',
+        value:'Premium',
+        category:'audio',
         date:'May 01, 2025 6:0:0',
-        showDate:true
+        showDate:true,
+        tag:'Music'
     },
     
     {
@@ -410,56 +396,60 @@ export const nftData = [
         creater1:client10,
         creater2:client11,
         creater3:client12,
-        createrName:'Rosaria Vargas',
-        title:'@Princess',
+        createrName:'Steven Rodriguez',
+        title:'@RainbowDesign',
         product:product13,
-        name:'Rainbow Style',
-        value:'20.5 ETH',
-        category:'music',
+        name:'Colorful Brand Identity Kit',
+        value:'Premium',
+        category:'graphics',
         date:'May 01, 2025 6:0:0',
-        showDate:true
+        showDate:true,
+        tag:'Branding'
     },
     {
         id: 14,
         creater1:client1,
         creater2:client2,
         creater3:client3,
-        createrName:'Rosaria Vargas',
-        title:'@Princess',
+        createrName:'Maria Lopez',
+        title:'@MotionPro',
         product:product14,
-        name:'Running Puppets',
-        value:'20.5 ETH',
-        category:'music',
+        name:'Animated Presentation Template',
+        value:'Premium',
+        category:'templates',
         date:'May 01, 2025 6:0:0',
-        showDate:true
+        showDate:true,
+        tag:'Animation'
     },
     {
         id: 15,
         creater1:client4,
         creater2:client5,
         creater3:client6,
-        createrName:'Rosaria Vargas',
-        title:'@Princess',
+        createrName:'David Kim',
+        title:'@MinimalArt',
         product:product15,
-        name:'Loop Donut',
-        value:'20.5 ETH',
-        category:'music',
+        name:'Minimalist Icon Collection',
+        value:'Premium',
+        category:'graphics',
         date:'May 01, 2025 6:0:0',
-        showDate:true
+        showDate:true,
+        tag:'Icons'
     },
     {
         id: 16,
         creater1:client7,
         creater2:client8,
         creater3:client9,
-        createrName:'Rosaria Vargas',
-        title:'@Princess',
+        createrName:'Sarah Johnson',
+        title:'@StoryTeller',
         product:product16,
-        name:'This is Our Story',
-        value:'20.5 ETH',
-        category:'music',
+        name:'Documentary Video Template',
+        value:'Premium',
+        category:'video',
         date:'May 01, 2025 6:0:0',
-        showDate:true
+        showDate:true,
+        tag:'Video'
     },
 ]
 
@@ -467,31 +457,31 @@ export const blogData = [
     {
         id:1,
         image:blog1,
-        title:'Mindfulness Activities for Kids & Toddlers with NFT',
-        tag:'Arts',
+        title:'Essential Design Resources for Modern Web Development',
+        tag:'Templates',
         date:'13th Sep, 2025',
         auther:'@callyjoe'
     },
     {
         id:2,
         image:blog2,
-        title:'Save Thousands Of Lives Through This NFT',
-        tag:'Illustration',
+        title:'Creating Stunning Graphics with Premium Design Assets',
+        tag:'Graphics',
         date:'29th Nov, 2025',
         auther:' @kristyhoney'
     },
     {
         id:3,
         image:blog3,
-        title:'A place where technology meets craftsmanship',
-        tag:'Music',
+        title:'Typography Trends: Choosing the Perfect Font for Your Brand',
+        tag:'Fonts',
         date:'29th Dec, 2025',
         auther:'@pandaone'
     },
     {
         id:4,
         image:blog4,
-        title:'NFT Market - A Compact Trike with the Big Benefits',
+        title:'Video Templates That Transform Your Content Marketing',
         tag:'Video',
         date:'13th March, 2025',
         auther:'@streetboy'
@@ -499,64 +489,64 @@ export const blogData = [
     {
         id:5,
         image:blog5,
-        title:'Honoring Black History Month with Toddlers',
-        tag:'Games',
+        title:'UI Kit Essentials for Mobile App Development',
+        tag:'UI Kits',
         date:'5th May, 2025',
         auther:'@norsequeen'
     },
     {
         id:6,
         image:blog6,
-        title:'Setting Intentions Instead of Resolutions for 2021',
-        tag:'Memes',
+        title:'Stock Photography Tips for Creative Professionals',
+        tag:'Photos',
         date:'19th June, 2025',
         auther:'@bigbull'
     },
     {
         id:7,
         image:blog7,
-        title:'Clever Ways to Purchase Extraordinart Items',
-        tag:'GIFs',
+        title:'Audio Resources for Enhanced Digital Experiences',
+        tag:'Audio',
         date:'20th June, 2025',
         auther:'@princess'
     },
     {
         id:8,
         image:blog8,
-        title:'How to Save Money on Baby Essentials for NFT',
-        tag:'Video',
+        title:'Building Brand Identity with Premium Logo Templates',
+        tag:'Graphics',
         date:'31st August, 2025',
         auther:'@crazyanyone'
     },
     {
         id:9,
         image:blog9,
-        title:'Liki Trike - A Compact Trike with the Big Benefits',
-        tag:'Music',
+        title:'Motion Graphics Templates for Social Media Success',
+        tag:'Video',
         date:'1st Sep, 2025',
         auther:'@angel'
     },
     {
         id:10,
         image:blog10,
-        title:'NFT Market - A Compact the Big Benefits',
-        tag:'Tech',
+        title:'Website Templates That Drive Conversions',
+        tag:'Templates',
         date:'21th October, 2025',
         auther:'@cutiegirl'
     },
     {
         id:11,
         image:blog11,
-        title:'Behind the Scenes of the creabik App',
-        tag:'Arts',
+        title:'Behind the Scenes: Creating Premium Digital Assets',
+        tag:'Graphics',
         date:'19th June, 2025',
         auther:'@funnyguy'
     },
     {
         id:12,
         image:blog12,
-        title:'Meet fennouni, Product Designer at GitHub',
-        tag:'GIFs',
+        title:'Meet Sarah, Lead Designer at Creative Studios',
+        tag:'Templates',
         date:'20th June, 2025',
         auther:'@butterfly'
     },
@@ -569,8 +559,8 @@ export const collectionData = [
         image3:collection4,
         image4:collection10,
         client:client1,
-        name:'Digital Arts',
-        item:'27 Items'
+        name:'Website Templates',
+        item:'127 Resources'
     },
     {
         image1:collection2,
@@ -578,8 +568,8 @@ export const collectionData = [
         image3:collection6,
         image4:collection7,
         client:client2,
-        name:'Sports',
-        item:'27 Items'
+        name:'Logo Collections',
+        item:'89 Resources'
     },
     {
         image1:collection8,
@@ -587,8 +577,8 @@ export const collectionData = [
         image3:collection11,
         image4:collection12,
         client:client3,
-        name:'Photography',
-        item:'27 Items'
+        name:'Stock Photography',
+        item:'245 Resources'
     },
     {
         image1:collection4,
@@ -596,8 +586,8 @@ export const collectionData = [
         image3:collection10,
         image4:collection3,
         client:client4,
-        name:'Illustrations',
-        item:'27 Items'
+        name:'UI Kit Bundles',
+        item:'156 Resources'
     },
     {
         image1:collection5,
@@ -605,8 +595,8 @@ export const collectionData = [
         image3:collection2,
         image4:collection7,
         client:client5,
-        name:'Animations',
-        item:'27 Items'
+        name:'Motion Graphics',
+        item:'78 Resources'
     },
     {
         image1:collection11,
@@ -614,8 +604,8 @@ export const collectionData = [
         image3:collection8,
         image4:collection12,
         client:client6,
-        name:'Virtual Reality',
-        item:'27 Items'
+        name:'Font Collections',
+        item:'134 Resources'
     },
     {
         image1:collection12,
@@ -623,8 +613,8 @@ export const collectionData = [
         image3:collection4,
         image4:collection10,
         client:client7,
-        name:'Digital Arts',
-        item:'27 Items'
+        name:'Business Graphics',
+        item:'198 Resources'
     },
     {
         image1:collection13,
@@ -632,8 +622,8 @@ export const collectionData = [
         image3:collection6,
         image4:collection7,
         client:client8,
-        name:'Sports',
-        item:'27 Items'
+        name:'Social Media Templates',
+        item:'167 Resources'
     },
     {
         image1:collection14,
@@ -641,8 +631,8 @@ export const collectionData = [
         image3:collection11,
         image4:collection12,
         client:client9,
-        name:'Photography',
-        item:'27 Items'
+        name:'Video Templates',
+        item:'95 Resources'
     },
     {
         image1:collection15,
@@ -650,8 +640,8 @@ export const collectionData = [
         image3:collection10,
         image4:collection3,
         client:client10,
-        name:'Illustrations',
-        item:'27 Items'
+        name:'Audio Assets',
+        item:'112 Resources'
     },
     {
         image1:collection7,
@@ -659,8 +649,8 @@ export const collectionData = [
         image3:collection2,
         image4:collection5,
         client:client11,
-        name:'Animations',
-        item:'27 Items'
+        name:'Presentation Templates',
+        item:'156 Resources'
     },
     {
         image1:collection9,
@@ -668,31 +658,31 @@ export const collectionData = [
         image3:collection8,
         image4:collection12,
         client:client12,
-        name:'Virtual Reality',
-        item:'27 Items'
+        name:'Branding Kits',
+        item:'87 Resources'
     },
 ]
 
 export const services = [
     {
-        icon:'uil uil-card-atm',
-        title:'Set up your wallet',
-        desc:'Start working with Superex NFTs that can provide everything'
+        icon:'uil uil-user-plus',
+        title:'Create your account',
+        desc:'Join Pixev marketplace and get access to thousands of premium digital resources'
     },
     {
-        icon:'uil uil-bitcoin-circle',
-        title:'Buy your collection',
-        desc:'Start working with Superex NFTs that can provide everything'
+        icon:'uil uil-search',
+        title:'Browse resources',
+        desc:'Discover amazing templates, graphics, fonts and more from talented designers worldwide'
     },
     {
-        icon:'uil uil-wallet',
-        title:'Add your NFTs',
-        desc:'Start working with Superex NFTs that can provide everything'
+        icon:'uil uil-download-alt',
+        title:'Download assets',
+        desc:'Get instant access to high-quality digital resources for your creative projects'
     },
     {
-        icon:'uil uil-layers',
-        title:'Sell Your NFTs',
-        desc:'Start working with Superex NFTs that can provide everything'
+        icon:'uil uil-upload',
+        title:'Sell your work',
+        desc:'Share your creative talents and earn money by selling your digital resources'
     },
 ]
 export const slideOne = [
@@ -705,80 +695,80 @@ export const slideTwo = [
 export const activityData = [
     {
         image:product15,
-        title:'Digital Art Collection',
-        name:'Started Following',
+        title:'Premium UI Kit Bundle',
+        name:'Downloaded by',
         name2:'@Panda',
         time:'1 hours ago',
-        icon:'mdi mdi-account-check mdi-18px text-success'
+        icon:'mdi mdi-download mdi-18px text-success'
     },
     {
         image:product14,
-        title:'Skrrt Cobain Official',
-        name:'Liked by',
+        title:'Modern Logo Collection',
+        name:'Favorited by',
         name2:'@ButterFly',
         time:'2 hours ago',
         icon:'mdi mdi-heart mdi-18px text-danger'
     },
     {
         image:product13,
-        title:'Wow! That Brain Is Floating',
-        name:'Liked by',
+        title:'Creative Website Template',
+        name:'Favorited by',
         name2:'@ButterFly',
         time:'2 hours ago',
         icon:'mdi mdi-heart mdi-18px text-danger'
     },
     {
         image:product12,
-        title:'Our Journey Start',
-        name:'Liked by',
+        title:'Business Presentation Pack',
+        name:'Downloaded by',
         name2:'@CalvinCarlo',
         time:'5 hours ago',
-        icon:'mdi mdi-format-list-bulleted mdi-18px text-warning'
+        icon:'mdi mdi-download mdi-18px text-success'
     },
     {
         image:product11,
-        title:'BitBears',
-        name:'Liked by',
+        title:'Social Media Graphics Kit',
+        name:'Favorited by',
         name2:'@ButterFly',
         time:'8 hours ago',
         icon:'mdi mdi-heart mdi-18px text-danger'
     },
     {
         image:product10,
-        title:'Little Kokeshi #13',
-        name:'Liked by',
+        title:'Minimalist Font Bundle',
+        name:'Downloaded by',
         name2:'@ButterFly',
         time:'1 hours ago',
-        icon:'mdi mdi-heart mdi-18px text-danger'
+        icon:'mdi mdi-download mdi-18px text-success'
     },
     {
         image:product9,
-        title:'EVOL Floater',
-        name:'Liked by',
+        title:'Video Template Collection',
+        name:'Favorited by',
         name2:'@CutieGirl',
         time:'13 hours ago',
-        icon:'mdi mdi-account-check mdi-18px text-success'
+        icon:'mdi mdi-heart mdi-18px text-danger'
     },
     {
         image:product8,
-        title:'Smart Ape Club (SAC) - Limited Edition',
-        name:'Liked by',
+        title:'E-commerce UI Components',
+        name:'Downloaded by',
         name2:'@CalvinCarlo',
         time:'18 hours ago',
-        icon:'mdi mdi-format-list-bulleted mdi-18px text-warning'
+        icon:'mdi mdi-download mdi-18px text-success'
     },
     {
         image:product7,
-        title:'THE SECRET SOCIETY XX #775',
-        name:'Liked by',
+        title:'Photography Stock Bundle',
+        name:'Downloaded by',
         name2:'@CalvinCarlo',
         time:'23 hours ago',
-        icon:'mdi mdi-format-list-bulleted mdi-18px text-warning'
+        icon:'mdi mdi-download mdi-18px text-success'
     },
     {
         image:product6,
-        title:'Create Your Own World',
-        name:'Liked by',
+        title:'Brand Identity Templates',
+        name:'Favorited by',
         name2:'@ButterFly',
         time:'1 hours ago',
         icon:'mdi mdi-heart mdi-18px text-danger'
@@ -788,21 +778,21 @@ export const activityData = [
 export const bidsData = [
     {
         image:client1,
-        title1:'2 WETH',
-        title2:'0xe849fa28a...ea14',
+        title1:'2,340 Downloads',
+        title2:'Steven Townsend',
         time:'6 hours ago'
     },
     {
         image:client8,
-        title1:'0.001 WETH',
-        title2:'VOTwear',
-        time:'6 hours ago'
+        title1:'1,875 Downloads',
+        title2:'Eugene Green',
+        time:'12 hours ago'
     },
     {
         image:client10,
-        title1:'1.225 WETH',
-        title2:'PandaOne',
-        time:'6 hours ago'
+        title1:'3,125 Downloads',
+        title2:'Michael Williams',
+        time:'1 day ago'
     },
 ]
 
@@ -849,6 +839,67 @@ export const activityFilter = [
     },
 ]
 
+export const categoryData = [
+    {
+        image:wallet1,
+        name:'Web Templates',
+        desc:'Premium website templates for modern businesses',
+        bgColor:'bg-gradient-primary p-5 rounded-md',
+        tag:true,
+        category: 'templates'
+    },
+    {
+        image:wallet2,
+        name:'WordPress Themes',
+        desc:'Professional WordPress themes for any niche',
+        bgColor:'bg-gradient-primary p-5 rounded-md',
+        category: 'wordpress'
+    },
+    {
+        image:wallet3,
+        name:'Graphics & Design',
+        desc:'Logos, icons, illustrations and graphic elements',
+        bgColor:'bg-gradient-warning p-5 rounded-md',
+        category: 'graphics'
+    },
+    {
+        image:wallet4,
+        name:'Stock Photos',
+        desc:'High-quality stock photography for commercial use',
+        bgColor:'bg-gradient-danger p-5 rounded-md',
+        category: 'photos'
+    },
+    {
+        image:wallet5,
+        name:'UI/UX Kits',
+        desc:'Complete UI kits and design systems',
+        bgColor:'bg-gradient-info p-5 rounded-md',
+        category: 'ui-kits'
+    },
+    {
+        image:wallet6,
+        name:'Fonts & Typography',
+        desc:'Professional fonts and typography resources',
+        bgColor:'bg-gradient-primary p-5 rounded-md',
+        category: 'fonts'
+    },
+    {
+        image:wallet7,
+        name:'Video Assets',
+        desc:'Motion graphics, video templates and effects',
+        bgColor:'bg-gradient-success p-5 rounded-md',
+        category: 'video'
+    },
+    {
+        image:wallet8,
+        name:'Audio & Music',
+        desc:'Background music, sound effects and audio tracks',
+        bgColor:'bg-gradient-secondary p-5 rounded-md',
+        category: 'audio'
+    }
+]
+
+// Keep old walletData for backwards compatibility
 export const walletData = [
     {
         image:wallet1,
@@ -1056,19 +1107,19 @@ export const helpcenterServices = [
     {
         icon:'uil uil-question-circle',
         title:'FAQs',
-        desc:'Due to its widespread use as filler text for layouts, non-readability is of great importance.',
+        desc:'Find answers to common questions about subscriptions, downloads, licenses, and using our digital resources.',
         link:'/helpcenter-faqs'
     },
     {
         icon:'uil uil-file-bookmark-alt',
         title:'Guides / Support',
-        desc:'Due to its widespread use as filler text for layouts, non-readability is of great importance.',
+        desc:'Learn how to download resources, manage your subscription, and get the most out of our platform.',
         link:'/helpcenter-guides'
     },
     {
         icon:'uil uil-cog',
         title:'Support Request',
-        desc:'Due to its widespread use as filler text for layouts, non-readability is of great importance.',
+        desc:'Need personalized help? Contact our support team for assistance with your account or technical issues.',
         link:'/helpcenter-support-request'
     },
 ]
@@ -1076,23 +1127,23 @@ export const helpcenterServices = [
 export const accordionData = [
     {
         id:1,
-        title:'How does it work ?',
-        desc:'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.'
+        title:'How does the subscription work?',
+        desc:'Choose between Free (3 downloads/month) or Premium (unlimited downloads). Premium includes commercial licenses and high-quality files from all categories.'
     },
     {
         id:2,
-        title:'Do I need a designer to use Superex ?',
-        desc:'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.'
+        title:'Do I need design experience to use these resources?',
+        desc:'Not at all! Our resources are designed for everyone - from beginners to professionals. Most templates come with easy-to-edit files and documentation.'
     },
     {
         id:3,
-        title:'What do I need to do to start selling ?',
-        desc:'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.'
+        title:'What do I need to do to start downloading?',
+        desc:'Simply create a free account to start with 3 downloads per month, or upgrade to Premium for unlimited access to all resources and commercial licenses.'
     }, 
     {
         id:4,
-        title:'What happens when I receive an order ?',
-        desc:'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.'
+        title:'What file formats are included?',
+        desc:'We provide multiple formats including PSD, AI, SVG, PNG, JPG, MP4, HTML, CSS, and more depending on the resource type. All Premium resources include source files.'
     },
 ]
 
@@ -1100,43 +1151,43 @@ export const guidenceData = [
     {
         title:'Getting started',
         subtitle:[
-            'Pricing & availability','Booking settings','Responding to enquiries & requests','Snoozing or deactivating your listing'
+            'Creating your account','Choosing a subscription plan','Downloading your first resource','Understanding licenses','Free vs Premium features'
         ]
     },
     {
-        title:'Your calendar',
+        title:'Subscription & Billing',
         subtitle:[
-            'Deciding to purchase','List your space','Landing an experience or adventure','Top uses questions'
+            'Monthly vs Annual plans','Managing your subscription','Payment methods','Canceling your subscription','Billing FAQs'
         ]
     },
     {
-        title:'Your listings',
+        title:'Using Resources',
         subtitle:[
-            'Updating your listing','Neighbourhoods','Listing photos & photography','Superex Plus','API-connected software'
+            'Downloading resources','File formats explained','Using templates','Editing graphics','Commercial usage rights'
         ]
     },
     {
-        title:'How payouts work',
+        title:'Account Management',
         subtitle:[
-            'Getting paid','Adding payout info','Your payout status','Donations','Taxes'
+            'Profile settings','Download history','Favorites & collections','Account security','Password reset'
         ]
     },
     {
-        title:'Your reservations',
+        title:'Resource Categories',
         subtitle:[
-            'Superex safely','Superex Experiences and Adventures','Changing a reservation','Cancelling a reservation','Long-term reservations'
+            'Website templates','Graphics & design','Stock photos','UI kits','Fonts & typography'
         ]
     },
     {
-        title:'Reservation help',
+        title:'Technical Support',
         subtitle:[
-            'Help with a reservation or guest','Guest cancellations',
+            'Download issues','File compatibility','Software requirements','Mobile app support','Browser troubleshooting'
         ]
     },
     {
-        title:'Your account',
+        title:'Licenses & Legal',
         subtitle:[
-            'Your profile','Account security','Identification & verifications','Reviews','Superhost status'
+            'License types','Commercial usage','Attribution requirements','Copyright information','Terms of service'
         ]
     },
 ]
@@ -1145,3 +1196,130 @@ export const restrictions = [
         'Digital Marketing Solutions for Tomorrow','Our Talented & Experienced Marketing Agency','Create your own skin to match your brand','Digital Marketing Solutions for Tomorrow','Our Talented & Experienced Marketing Agency','Create your own skin to match your brand'
     
 ]
+
+// Subscription Plans Data
+export const subscriptionPlans = [
+    {
+        id: 1,
+        name: 'Free',
+        price: '$0',
+        period: 'Forever',
+        description: 'Perfect for trying out our platform',
+        features: [
+            '3 downloads per month',
+            'Standard quality files',
+            'Basic support',
+            'Personal license only'
+        ],
+        limitations: [
+            'Limited downloads',
+            'No premium resources',
+            'Standard quality only'
+        ],
+        popular: false,
+        buttonText: 'Get Started',
+        color: 'primary'
+    },
+    {
+        id: 2,
+        name: 'Premium',
+        price: '$29',
+        period: 'per month',
+        description: 'Unlimited access to all digital resources',
+        features: [
+            'Unlimited downloads',
+            'All premium resources',
+            'High-quality files',
+            'Commercial license included',
+            'Priority support',
+            'Early access to new resources',
+            'No attribution required'
+        ],
+        limitations: [],
+        popular: true,
+        buttonText: 'Start Free Trial',
+        color: 'success'
+    },
+    {
+        id: 3,
+        name: 'Premium Annual',
+        price: '$290',
+        period: 'per year',
+        originalPrice: '$348',
+        savings: '17% OFF',
+        description: 'Save more with annual billing',
+        features: [
+            'Everything in Premium',
+            'Save $58 per year',
+            'Unlimited downloads',
+            'All premium resources',
+            'Commercial license included',
+            'Priority support',
+            'Exclusive annual bonuses'
+        ],
+        limitations: [],
+        popular: false,
+        buttonText: 'Start Free Trial',
+        color: 'info'
+    }
+];
+
+// Resource Categories for Subscription
+export const resourceCategories = [
+    {
+        id: 1,
+        name: 'Website Templates',
+        count: '2,500+',
+        icon: 'fas fa-laptop-code',
+        description: 'Responsive HTML, React, and WordPress themes'
+    },
+    {
+        id: 2,
+        name: 'Graphics & Design',
+        count: '5,000+',
+        icon: 'fas fa-paint-brush',
+        description: 'Logos, icons, illustrations, and design elements'
+    },
+    {
+        id: 3,
+        name: 'Stock Photos',
+        count: '10,000+',
+        icon: 'fas fa-camera',
+        description: 'High-resolution photos for any project'
+    },
+    {
+        id: 4,
+        name: 'UI Kits',
+        count: '800+',
+        icon: 'fas fa-mobile-alt',
+        description: 'Complete UI components and design systems'
+    },
+    {
+        id: 5,
+        name: 'Fonts',
+        count: '1,200+',
+        icon: 'fas fa-font',
+        description: 'Premium typography for web and print'
+    },
+    {
+        id: 6,
+        name: 'Audio & Music',
+        count: '3,000+',
+        icon: 'fas fa-music',
+        description: 'Background music, sound effects, and audio loops'
+    },
+    {
+        id: 7,
+        name: 'Video Templates',
+        count: '1,500+',
+        icon: 'fas fa-video',
+        description: 'Motion graphics and video editing templates'
+    },
+    {
+        id: 8,
+        name: 'Print Templates',
+        count: '2,000+',
+        icon: 'fas fa-print',
+        description: 'Business cards, flyers, and print materials'
+    }
+];

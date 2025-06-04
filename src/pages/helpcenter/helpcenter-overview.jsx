@@ -36,7 +36,7 @@ export default function HelpcenterOverview() {
           <div className="position-middle-bottom">
               <nav aria-label="breadcrumb" className="d-block">
                   <ul className="breadcrumb breadcrumb-muted mb-0 p-0">
-                      <li className="breadcrumb-item"><Link to="/">Superex</Link></li>
+                      <li className="breadcrumb-item"><Link to="/">Pixev</Link></li>
                       <li className="breadcrumb-item active" aria-current="page">Help Center</li>
                   </ul>
               </nav>
@@ -54,10 +54,9 @@ export default function HelpcenterOverview() {
     <section className="section">
       <div className="container">
           <div className="row justify-content-center">
-              <div className="col-12">
-                  <div className="section-title text-center mb-4 pb-2">
+              <div className="col-12">                  <div className="section-title text-center mb-4 pb-2">
                       <h4 className="mb-4 title">Find the help you need</h4>
-                      <p className="para-desc mx-auto text-muted">We are a huge marketplace dedicated to connecting great artists of all Superex with their fans and unique token collectors!</p>
+                      <p className="para-desc mx-auto text-muted">We are a huge marketplace dedicated to connecting great artists of all Pixev with their fans and unique token collectors!</p>
                   </div>
               </div>
           </div>
@@ -85,10 +84,9 @@ export default function HelpcenterOverview() {
 
       <div className="container mt-100 mt-60">
           <div className="row justify-content-center">
-              <div className="col-12">
-                  <div className="section-title text-center mb-4 pb-2">
+              <div className="col-12">                  <div className="section-title text-center mb-4 pb-2">
                       <h4 className="mb-4">Get Started</h4>
-                      <p className="para-desc mx-auto text-muted">We are a huge marketplace dedicated to connecting great artists of all Superex with their fans and unique token collectors!</p>
+                      <p className="para-desc mx-auto text-muted">We are a huge marketplace dedicated to connecting great artists of all Pixev with their fans and unique token collectors!</p>
                   </div>
               </div>
           </div>

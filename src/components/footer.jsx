@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import appImg from '../assets/images/app.png'
 import playstore from '../assets/images/playstore.png'
-import logo  from '../assets/images/icon-logo-64.png'
+import logopixel from '../assets/images/logopixel.svg'
 
 export default function Footer() {
     let [visible, setVisible] = useState(false)
@@ -33,7 +33,7 @@ export default function Footer() {
             <div className="container">
                 <div className="row">
                     <div className="col-xl-8 col-lg-7 col-md-6">
-                        <h5 className="text-light fw-normal title-dark">Download the Superex app to explore any NFTs</h5>
+                        <h5 className="text-light fw-normal title-dark">Download the Pixev app to explore premium digital resources</h5>
                         
                         <div className="mt-4">
                             <Link to=""><img src={appImg} height="40" className="rounded shadow" alt=""/></Link>
@@ -42,7 +42,7 @@ export default function Footer() {
                     </div>
 
                     <div className="col-xl-4 col-lg-5 col-md-6 mt-4 mt-sm-0">
-                        <h5 className="text-light fw-normal title-dark">Join Superex community</h5>
+                        <h5 className="text-light fw-normal title-dark">Join Pixev community</h5>
 
                         <ul className="list-unstyled social-icon foot-social-icon mb-0 mt-4 ">
                             <li className="list-inline-item lh-1"><Link to="" className="rounded"><i className="uil uil-facebook-f"></i></Link></li>
@@ -66,23 +66,21 @@ export default function Footer() {
                 <div className="col-12">
                     <div className="footer-py-60 footer-border">
                         <div className="row">
-                            <div className="col-lg-4 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
-                                <Link to="#" className="logo-footer">
-                                    <img src={logo} alt=""/>
+                            <div className="col-lg-4 col-12 mb-0 mb-md-4 pb-0 pb-md-2">                                <Link to="#" className="logo-footer">
+                                    <img src={logopixel} alt=""/>
                                 </Link>
-                                <p className="para-desc mb-0 mt-4">Buy, sell and discover exclusive digital assets by the top artists of NFTs world.</p>
+                                <p className="para-desc mb-0 mt-4">Discover, download and create with premium digital resources, templates, and creative assets from top designers worldwide.</p>
                             
                                 
                             </div>
                             
                             <div className="col-lg-2 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                                <h5 className="footer-head">Superex</h5>
-                                <ul className="list-unstyled footer-list mt-4">
-                                    <li><Link to="/explore-two" className="text-foot"><i className="uil uil-angle-right-b me-1"></i> Explore</Link></li>
-                                    <li className='ms-0'><Link to="/auction" className="text-foot"><i className="uil uil-angle-right-b me-1"></i> Live Auction</Link></li>
-                                    <li className='ms-0'><Link to="/activity" className="text-foot"><i className="uil uil-angle-right-b me-1"></i> Activities</Link></li>
-                                    <li className='ms-0'><Link to="/wallet" className="text-foot"><i className="uil uil-angle-right-b me-1"></i> Wallet</Link></li>
-                                    <li className='ms-0'><Link to="/creators" className="text-foot"><i className="uil uil-angle-right-b me-1"></i> Creators</Link></li>
+                                <h5 className="footer-head">Pixev</h5>
+                                <ul className="list-unstyled footer-list mt-4">                                    <li><Link to="/explore-two" className="text-foot"><i className="uil uil-angle-right-b me-1"></i> Browse Resources</Link></li>
+                                    <li className='ms-0'><Link to="/auction" className="text-foot"><i className="uil uil-angle-right-b me-1"></i> Premium Assets</Link></li>
+                                    <li className='ms-0'><Link to="/activity" className="text-foot"><i className="uil uil-angle-right-b me-1"></i> Recent Downloads</Link></li>
+                                    <li className='ms-0'><Link to="/wallet" className="text-foot"><i className="uil uil-angle-right-b me-1"></i> My Account</Link></li>
+                                    <li className='ms-0'><Link to="/creators" className="text-foot"><i className="uil uil-angle-right-b me-1"></i> Authors</Link></li>
                                 </ul>
                             </div>
                             
@@ -132,7 +130,7 @@ export default function Footer() {
                 <div className="row align-items-center">
                     <div className="col-sm-6">
                         <div className="text-sm-start">
-                            <p className="mb-0">© {new Date().getFullYear()} Superex. Design & Develop with <i className="mdi mdi-heart text-danger"></i> by <Link to="https://shreethemes.in/" target="_blank" className="text-reset">Shreethemes</Link>.</p>
+                            <p className="mb-0">© {new Date().getFullYear()} Pixev. Design & Develop with <i className="mdi mdi-heart text-danger"></i> by <Link to="https://www.facebook.com/suunhi.6623" target="_blank" className="text-reset">Pixev</Link>.</p>
                         </div>
                     </div>
 

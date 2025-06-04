@@ -19,10 +19,9 @@ export default function Aboutus() {
         <div className="bg-overlay bg-gradient-overlay-2"></div>
         <div className="container">
             <div className="row mt-5 justify-content-center">
-                <div className="col-12">
-                    <div className="title-heading text-center">
-                        <h5 className="heading fw-semibold sub-heading text-white title-dark">Meet Superex</h5>
-                        <p className="text-white-50 para-desc mx-auto mb-0">NFT marketplace where anything is possible and all are welcome</p>
+                <div className="col-12">                    <div className="title-heading text-center">
+                        <h5 className="heading fw-semibold sub-heading text-white title-dark">Meet Pixev</h5>
+                        <p className="text-white-50 para-desc mx-auto mb-0">Digital resources marketplace where creativity meets quality and all professionals are welcome</p>
                     </div>
                 </div>
             </div>
@@ -30,7 +29,7 @@ export default function Aboutus() {
             <div className="position-middle-bottom">
                 <nav aria-label="breadcrumb" className="d-block">
                     <ul className="breadcrumb breadcrumb-muted mb-0 p-0">
-                        <li className="breadcrumb-item"><Link to="/">Superex</Link></li>
+                        <li className="breadcrumb-item"><Link to="/">Pixev</Link></li>
                         <li className="breadcrumb-item active" aria-current="page">ABOUT US</li>
                     </ul>
                 </nav>
@@ -79,13 +78,10 @@ export default function Aboutus() {
                               <h4 className="mb-0 display-5 fw-bold title-dark mt-2">$<CountUp className="counter-value" start={0} end={40}/>M</h4>
                               <span className="counter-head fw-semibold text-muted title-dark">Trading volume</span>
                           </div>
-                      </div>
-
-  
-                      <div className="col-md-4 col-6">
+                      </div>                      <div className="col-md-4 col-6">
                           <div className="counter-box position-relative text-center">
                               <h4 className="mb-0 display-5 fw-bold title-dark mt-2"><CountUp className="counter-value" start={0} end={200}/></h4>
-                              <span className="counter-head fw-semibold text-muted title-dark">NFTs created</span>
+                              <span className="counter-head fw-semibold text-muted title-dark">Resources created</span>
                           </div>
                       </div>
 
@@ -108,7 +104,7 @@ export default function Aboutus() {
               <div className="col">
                   <div className="section-title text-center mb-4 pb-2">
                       <h4 className="title mb-4">Our Team</h4>
-                      <p className="text-muted para-desc mb-0 mx-auto">We are a huge marketplace dedicated to connecting great artists of all Superex with their fans and unique token collectors!</p>
+                      <p className="text-muted para-desc mb-0 mx-auto">We are a huge marketplace dedicated to connecting great artists of all Pixev with their fans and unique token collectors!</p>
                   </div>
               </div>
 

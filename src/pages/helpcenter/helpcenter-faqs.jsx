@@ -27,7 +27,7 @@ export default function HelpcenterFaqs() {
           <div className="position-middle-bottom">
               <nav aria-label="breadcrumb" className="d-block">
                   <ul className="breadcrumb breadcrumb-muted mb-0 p-0">
-                      <li className="breadcrumb-item"><Link to="/">Superex</Link></li>
+                      <li className="breadcrumb-item"><Link to="/">Pixev</Link></li>
                       <li className="breadcrumb-item"><Link to="/helpcenter-overview">Help Center</Link></li>
                       <li className="breadcrumb-item active" aria-current="page">FAQs</li>
                   </ul>
@@ -51,7 +51,7 @@ export default function HelpcenterFaqs() {
                       <ul className="list-unstyled sidebar-nav mb-0 py-0" id="navmenu-nav">
                           <li className="navbar-item p-0"><Link to="getstart" spy={true} activeclassname="active" smooth={true} duration={500} className="h6 text-dark navbar-link">Getting started</Link></li>
                           <li className="navbar-item mt-3 p-0 ms-0"><Link spy={true} activeclassname="active" smooth={true} duration={500} to="policy" className="h6 text-dark navbar-link">Safety, Security, and Policies</Link></li>
-                          <li className="navbar-item mt-3 p-0 ms-0"><Link spy={true} activeclassname="active" smooth={true} duration={500} to="use" className="h6 text-dark navbar-link">Using Superex NFT</Link></li>
+                          <li className="navbar-item mt-3 p-0 ms-0"><Link spy={true} activeclassname="active" smooth={true} duration={500} to="use" className="h6 text-dark navbar-link">Using Pixev Digital Resources</Link></li>
                           <li className="navbar-item mt-3 p-0 ms-0"><Link spy={true} activeclassname="active" smooth={true} duration={500} to="support" className="h6 text-dark navbar-link">Support Questions</Link></li>
                       </ul>
                   </div>
@@ -71,7 +71,7 @@ export default function HelpcenterFaqs() {
 
 
                   <div className="section-title mt-5" id="use">
-                      <h5 className='mb-4'>Using Superex NFT</h5>
+                      <h5 className='mb-4'>Using Pixev Digital Resources</h5>
                       <Accordion/>
                   </div>
 

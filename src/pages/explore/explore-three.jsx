@@ -10,7 +10,7 @@ import Navbar from '../../components/navbar'
 import Subscription from '../../components/subscription'
 import Footer from '../../components/footer'
 
-import { nftData } from '../../data/data'
+import { resourceData } from '../../data/data'
 
 export default function ExploreThree() {
   const settings = {
@@ -48,10 +48,9 @@ export default function ExploreThree() {
         <div className="bg-overlay bg-gradient-overlay-2"></div>
         <div className="container">
             <div className="row mt-5 justify-content-center">
-                <div className="col-12">
-                    <div className="title-heading text-center">
-                        <h5 className="heading fw-semibold sub-heading text-white title-dark">Marketplace</h5>
-                        <p className="text-white-50 para-desc mx-auto mb-0">Explore the latest NFTs digital product</p>
+                <div className="col-12">                    <div className="title-heading text-center">
+                        <h5 className="heading fw-semibold sub-heading text-white title-dark">Digital Resources</h5>
+                        <p className="text-white-50 para-desc mx-auto mb-0">Explore premium digital resources and templates</p>
                     </div>
                 </div>
             </div>
@@ -59,7 +58,7 @@ export default function ExploreThree() {
             <div className="position-middle-bottom">
                 <nav aria-label="breadcrumb" className="d-block">
                     <ul className="breadcrumb breadcrumb-muted mb-0 p-0">
-                        <li className="breadcrumb-item"><Link to="/">Superex</Link></li>
+                        <li className="breadcrumb-item"><Link to="/">Pixev</Link></li>
                         <li className="breadcrumb-item active" aria-current="page">Explore</li>
                     </ul>
                 </nav>
@@ -80,7 +79,7 @@ export default function ExploreThree() {
                 <div className="col-12">
                     <div className="tiny-four-item-nav-arrow">
                       <TinySlider settings={settings}>
-                        {nftData.map((item,index)=>{
+                        {resourceData.map((item,index)=>{
                           return(
                               <div className="tiny-slide" key={index}>
                                   <div className="card nft-items nft-primary rounded-md shadow overflow-hidden m-1">
@@ -105,15 +104,13 @@ export default function ExploreThree() {
                                           </div>
 
                                           <div className="mt-2">
-                                              <Link to={`/item-detail-one/${item.id}`} className="title text-dark h6">{item.name}</Link>
-
-                                              <div className="d-flex justify-content-between mt-2">
-                                                  <small className="rate fw-bold">{item.value}</small>
-                                                  <small className="text-dark fw-bold">1 out of 10</small>
+                                              <Link to={`/item-detail-one/${item.id}`} className="title text-dark h6">{item.name}</Link>                                              <div className="d-flex justify-content-between mt-2">
+                                                  <small className="rate fw-bold">Premium</small>
+                                                  <small className="text-dark fw-bold">{item.category}</small>
                                               </div>
 
                                               <div className="text-end mt-3">
-                                                  <Link to={`/item-detail-one/${item.id}`} className="btn btn-sm rounded-md btn-primary">Place a bid</Link>
+                                                  <Link to={`/item-detail-one/${item.id}`} className="btn btn-sm rounded-md btn-primary">Premium</Link>
                                               </div>
                                           </div>
                                       </div>

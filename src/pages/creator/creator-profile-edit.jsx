@@ -31,7 +31,7 @@ export default function CreatorProfileEdit() {
           <div className="position-middle-bottom">
               <nav aria-label="breadcrumb" className="d-block">
                   <ul className="breadcrumb breadcrumb-muted mb-0 p-0">
-                      <li className="breadcrumb-item"><Link to="/">Superex</Link></li>
+                      <li className="breadcrumb-item"><Link to="/">Pixev</Link></li>
                       <li className="breadcrumb-item active" aria-current="page">Profile Edit</li>
                   </ul>
               </nav>
@@ -70,7 +70,7 @@ export default function CreatorProfileEdit() {
                                 <div className="col-12 mb-4">
                                     <label className="form-label h6">URL</label>
                                     <div className="form-icon">
-                                        <input name="url" id="superex-url" type="url" className="form-control" placeholder="https://superex.exe/streetboyyy"/>
+                                        <input name="url" id="pixev-url" type="url" className="form-control" placeholder="https://pixev.exe/streetboyyy"/>
                                     </div>
                                 </div>
 

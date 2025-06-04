@@ -7,7 +7,7 @@ import CreaterTwo from '../../components/creater/creater-two';
 import PopularCollection from '../../components/popular-collection';
 import Footer from '../../components/footer';
 
-import { nftData } from '../../data/data'
+import { resourceData } from '../../data/data'
 
 import TinySlider from "tiny-slider-react";
 import 'tiny-slider/dist/tiny-slider.css';
@@ -57,7 +57,7 @@ export default function IndexTwo() {
                 <div className="col-12">
                     <div className="tiny-five-item">
                       <TinySlider settings={settings}>
-                        {nftData.slice(0,8).map((item,index)=>{
+                        {resourceData.slice(0,8).map((item,index)=>{
                           return(
                             <div className="tiny-slide" key={index}>
                               <div className="card bg-white nft-items nft-primary rounded-md shadow-md overflow-hidden mx-2 my-3">
@@ -101,7 +101,7 @@ export default function IndexTwo() {
                 <div className="col-12">
                     <div className="section-title">
                         <h4 className="title mb-2">Best Creators & Sellers</h4>
-                        <p className="text-muted mb-0">Best sellers of the week's NFTs</p>
+                        <p className="text-muted mb-0">Best sellers of the week's digital resources</p>
                     </div>
                 </div>
             </div>

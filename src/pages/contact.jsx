@@ -28,7 +28,7 @@ export default function Contact() {
           <div className="position-middle-bottom">
               <nav aria-label="breadcrumb" className="d-block">
                   <ul className="breadcrumb breadcrumb-muted mb-0 p-0">
-                      <li className="breadcrumb-item"><Link to="/">Superex</Link></li>
+                      <li className="breadcrumb-item"><Link to="/">Pixev</Link></li>
                       <li className="breadcrumb-item active" aria-current="page">About us</li>
                   </ul>
               </nav>
@@ -50,10 +50,9 @@ export default function Contact() {
                   <div className="card border-0 text-center features feature-primary feature-clean">
                       <div className="icons text-center mx-auto">
                           <i className="uil uil-phone d-block rounded-md h3 mb-0"></i>
-                      </div>
-                      <div className="content mt-4 px-4">
+                      </div>                      <div className="content mt-4 px-4">
                           <h5 className="fw-bold">Phone</h5>
-                          <p className="text-muted">Start working with Superex that can provide everything</p>
+                          <p className="text-muted">Start working with Pixev that can provide everything</p>
                           <Link to="tel:+152534-468-854" className="text-primary">+152 534-468-854</Link>
                       </div>
                   </div>
@@ -63,10 +62,9 @@ export default function Contact() {
                   <div className="card border-0 text-center features feature-primary feature-clean">
                       <div className="icons text-center mx-auto">
                           <i className="uil uil-envelope d-block rounded-md h3 mb-0"></i>
-                      </div>
-                      <div className="content mt-4 px-4">
+                      </div>                      <div className="content mt-4 px-4">
                           <h5 className="fw-bold">Email</h5>
-                          <p className="text-muted">Start working with Superex that can provide everything</p>
+                          <p className="text-muted">Start working with Pixev that can provide everything</p>
                           <Link to="mailto:contact@example.com" className="text-primary">contact@example.com</Link>
                       </div>
                   </div>
@@ -153,7 +151,7 @@ export default function Contact() {
         <div className="col-12 p-0">
           <div className="card map border-0">
             <div className="card-body p-0">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39206.002432144705!2d-95.4973981212445!3d29.709510002925988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c16de81f3ca5%3A0xf43e0b60ae539ac9!2sGerald+D.+Hines+Waterwall+Park!5e0!3m2!1sen!2sin!4v1566305861440!5m2!1sen!2sin" style={{border:'0'}} title='superex' allowFullScreen></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39206.002432144705!2d-95.4973981212445!3d29.709510002925988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c16de81f3ca5%3A0xf43e0b60ae539ac9!2sGerald+D.+Hines+Waterwall+Park!5e0!3m2!1sen!2sin!4v1566305861440!5m2!1sen!2sin" style={{border:'0'}} title='pixev' allowFullScreen></iframe>
             </div>
           </div>
         </div>
@@ -162,7 +160,7 @@ export default function Contact() {
     <Footer/>
     <Modal show={show} onHide={()=>setShow(false)} size='lg'>
       <Modal.Body>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39206.002432144705!2d-95.4973981212445!3d29.709510002925988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c16de81f3ca5%3A0xf43e0b60ae539ac9!2sGerald+D.+Hines+Waterwall+Park!5e0!3m2!1sen!2sin!4v1566305861440!5m2!1sen!2sin" style={{border:'0',width:'100%', height:''}} title='superex' allowFullScreen></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39206.002432144705!2d-95.4973981212445!3d29.709510002925988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c16de81f3ca5%3A0xf43e0b60ae539ac9!2sGerald+D.+Hines+Waterwall+Park!5e0!3m2!1sen!2sin!4v1566305861440!5m2!1sen!2sin" style={{border:'0',width:'100%', height:''}} title='pixev' allowFullScreen></iframe>
       </Modal.Body>
     </Modal>
     </>

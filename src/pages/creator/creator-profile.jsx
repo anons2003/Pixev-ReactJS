@@ -10,7 +10,7 @@ import bg from '../../assets/images/blog/single.jpg'
 import officeImage from '../../assets/images/svg/office-desk.svg'
 import cart from '../../assets/images/svg/products-to-cart-or-basket.svg'
 
-import { activityData, followerData, nftData } from "../../data/data";
+import { activityData, followerData, resourceData } from "../../data/data";
 
 export default function CreatorProfile() {
   let [file, setFile] = useState(client1);
@@ -119,7 +119,7 @@ function handleChange2(e) {
                       {activeTab === 3 && (
                         <div className="tab-pane fade show active">
                             <div className="row row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1 g-4">
-                              {nftData.slice(0,3).map((item,index) =>{
+                              {resourceData.slice(0,3).map((item,index) =>{
                                 return(
                                   <div className="col" key={index}>
                                     <div className="card nft-items nft-primary nft-auction rounded-md shadow overflow-hidden mb-1 p-3">

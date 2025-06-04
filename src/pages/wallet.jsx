@@ -1,18 +1,30 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
+import { useUser } from '../contexts/UserContext'
 
 import bg1 from '../assets/images/bg/01.jpg'
-import logoDark from '../assets/images/logo-dark.png'
+import logopixel from '../assets/images/logopixel.svg'
 
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
 
 import Modal from 'react-bootstrap/Modal';
 
-import { walletData } from '../data/data'
-
 export default function Wallet() {
   const [show, setShow] = useState(false);
+  const [activeTab, setActiveTab] = useState('overview');
+  const { user } = useUser();
+  
+  // Redirect to login if no user
+  if (!user) {
+    return (
+      <div className="container mt-5 pt-5 text-center">
+        <h4>Please login to access your account</h4>
+        <Link to="/login" className="btn btn-primary mt-3">Login</Link>
+      </div>
+    );
+  }
+
   return (
     <>
     <Navbar navlight={true}/>
@@ -22,8 +34,8 @@ export default function Wallet() {
             <div className="row mt-5 justify-content-center">
                 <div className="col-12">
                     <div className="title-heading text-center">
-                        <h5 className="heading fw-semibold sub-heading text-white title-dark">Wallet Connect</h5>
-                        <p className="text-white-50 para-desc mx-auto mb-0">Please check all Wallets and connect with your wallet</p>
+                        <h5 className="heading fw-semibold sub-heading text-white title-dark">My Account</h5>
+                        <p className="text-white-50 para-desc mx-auto mb-0">Manage your subscription, downloads, and account settings</p>
                     </div>
                 </div>
             </div>
@@ -31,8 +43,8 @@ export default function Wallet() {
             <div className="position-middle-bottom">
                 <nav aria-label="breadcrumb" className="d-block">
                     <ul className="breadcrumb breadcrumb-muted mb-0 p-0">
-                        <li className="breadcrumb-item"><Link to="/">Superex</Link></li>
-                        <li className="breadcrumb-item active" aria-current="page">WALLET</li>
+                        <li className="breadcrumb-item"><Link to="/">Pixev</Link></li>
+                        <li className="breadcrumb-item active" aria-current="page">My Account</li>
                     </ul>
                 </nav>
             </div>
@@ -48,29 +60,259 @@ export default function Wallet() {
 
     <section className="section">
         <div className="container">
-            <div className="row row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1 g-4">
-              {walletData.map((item,index)=>{
-                return(
-                  <div className="col" key={index}>
-                    <div className="card wallet wallet-primary rounded-md shadow">
-                      {item.tag && (
-                        <div className="ribbon ribbon-right ribbon-primary overflow-hidden"><span className="text-center d-block shadow small fw-bold">Popular</span></div>
-                      )}
-                        <div className={item.bgColor}></div>
-                        <div className="position-relative">
-                            <div className="position-absolute top-0 start-50 translate-middle">
-                                <img src={item.image} className="avatar avatar-md-md rounded-pill shadow-sm p-3 bg-light" alt=""/>
+            <div className="row">
+                <div className="col-lg-3 col-md-4">
+                    <div className="card rounded shadow p-4 sticky-bar">
+                        <div className="text-center">                            <div className="avatar avatar-md-md mx-auto d-block rounded-pill bg-primary text-white">
+                                <span className="h4 mb-0">{user.name.charAt(0)}</span>
+                            </div>
+                            <h6 className="mt-3 mb-0">{user.name}</h6>
+                            <p className="text-muted small mb-0">{user.email}</p>
+                            <span className="badge bg-soft-success text-success mt-2">{user.plan}</span>
+                        </div>
+                        
+                        <ul className="list-unstyled mt-4 mb-0">
+                            <li className="p-0">
+                                <Link 
+                                    to="#" 
+                                    className={`d-flex align-items-center text-dark p-2 rounded ${activeTab === 'overview' ? 'bg-light' : ''}`}
+                                    onClick={() => setActiveTab('overview')}
+                                >
+                                    <i className="uil uil-dashboard me-2"></i> Overview
+                                </Link>
+                            </li>
+                            <li className="p-0 mt-2">
+                                <Link 
+                                    to="#" 
+                                    className={`d-flex align-items-center text-dark p-2 rounded ${activeTab === 'subscription' ? 'bg-light' : ''}`}
+                                    onClick={() => setActiveTab('subscription')}
+                                >
+                                    <i className="uil uil-credit-card me-2"></i> Subscription
+                                </Link>
+                            </li>
+                            <li className="p-0 mt-2">
+                                <Link 
+                                    to="#" 
+                                    className={`d-flex align-items-center text-dark p-2 rounded ${activeTab === 'downloads' ? 'bg-light' : ''}`}
+                                    onClick={() => setActiveTab('downloads')}
+                                >
+                                    <i className="uil uil-download-alt me-2"></i> Download History
+                                </Link>
+                            </li>
+                            <li className="p-0 mt-2">
+                                <Link 
+                                    to="#" 
+                                    className={`d-flex align-items-center text-dark p-2 rounded ${activeTab === 'settings' ? 'bg-light' : ''}`}
+                                    onClick={() => setActiveTab('settings')}
+                                >
+                                    <i className="uil uil-setting me-2"></i> Settings
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div className="col-lg-9 col-md-8 mt-4 mt-md-0">
+                    {activeTab === 'overview' && (
+                        <div className="card rounded shadow p-4">
+                            <h5 className="mb-4">Account Overview</h5>
+                            <div className="row">
+                                <div className="col-md-6 mb-4">
+                                    <div className="card bg-primary-light border-0 p-3">
+                                        <div className="d-flex align-items-center">
+                                            <i className="uil uil-download-alt h2 text-primary mb-0"></i>
+                                            <div className="ms-3">
+                                                <h6 className="mb-0">Downloads This Month</h6>
+                                                <h4 className="mb-0 text-primary">{user.downloads}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-md-6 mb-4">
+                                    <div className="card bg-success-light border-0 p-3">
+                                        <div className="d-flex align-items-center">
+                                            <i className="uil uil-check-circle h2 text-success mb-0"></i>
+                                            <div className="ms-3">
+                                                <h6 className="mb-0">Download Limit</h6>
+                                                <h4 className="mb-0 text-success">Unlimited</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             
-                            <div className="content text-center p-4">
-                                <h5 className="mt-4 pt-2 mb-0">{item.name}</h5>
-                                <p className="text-muted mt-3 mb-0">{item.desc} <Link to="#" className="link fw-semibold" onClick={()=>setShow(true)}>here <i className="uil uil-arrow-right"></i></Link></p>
+                            <div className="row">
+                                <div className="col-12">
+                                    <h6>Recent Activity</h6>
+                                    <div className="list-group list-group-flush">
+                                        <div className="list-group-item d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h6 className="mb-0">Premium UI Kit Bundle</h6>
+                                                <small className="text-muted">Downloaded</small>
+                                            </div>
+                                            <small>2 hours ago</small>
+                                        </div>
+                                        <div className="list-group-item d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h6 className="mb-0">Modern Logo Collection</h6>
+                                                <small className="text-muted">Downloaded</small>
+                                            </div>
+                                            <small>1 day ago</small>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                  </div>
-                )
-              })}
+                    )}
+                    
+                    {activeTab === 'subscription' && (
+                        <div className="card rounded shadow p-4">
+                            <div className="d-flex justify-content-between align-items-center mb-4">
+                                <h5 className="mb-0">Subscription Details</h5>
+                                <Link to="/pricing" className="btn btn-outline-primary btn-sm">Upgrade Plan</Link>
+                            </div>
+                            
+                            <div className="card bg-light border-0 p-3">
+                                <div className="row align-items-center">
+                                    <div className="col-md-8">                                        <h6 className="mb-2">{user.plan}</h6>
+                                        <p className="text-muted mb-0">Joined: {user.joinDate}</p>
+                                        <p className="text-muted mb-0">Unlimited downloads • Commercial license • Priority support</p>
+                                    </div>
+                                    <div className="col-md-4 text-md-end">
+                                        <h4 className="text-primary mb-0">$29/month</h4>
+                                        <button className="btn btn-outline-danger btn-sm mt-2">Cancel Subscription</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div className="mt-4">
+                                <h6>Billing History</h6>
+                                <div className="table-responsive">
+                                    <table className="table table-borderless">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Description</th>
+                                                <th>Amount</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Feb 15, 2025</td>
+                                                <td>Premium Monthly Subscription</td>
+                                                <td>$29.00</td>
+                                                <td><span className="badge bg-soft-success text-success">Paid</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Jan 15, 2025</td>
+                                                <td>Premium Monthly Subscription</td>
+                                                <td>$29.00</td>
+                                                <td><span className="badge bg-soft-success text-success">Paid</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                    
+                    {activeTab === 'downloads' && (
+                        <div className="card rounded shadow p-4">
+                            <h5 className="mb-4">Download History</h5>
+                            <div className="row">
+                                <div className="col-12">
+                                    <div className="table-responsive">
+                                        <table className="table table-borderless">
+                                            <thead>
+                                                <tr>
+                                                    <th>Resource</th>
+                                                    <th>Category</th>
+                                                    <th>Download Date</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div className="d-flex align-items-center">
+                                                            <div className="bg-primary-light rounded p-2 me-3">
+                                                                <i className="uil uil-layers text-primary"></i>
+                                                            </div>
+                                                            <div>
+                                                                <h6 className="mb-0">Premium UI Kit Bundle</h6>
+                                                                <small className="text-muted">Mobile app components</small>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>UI Kits</td>
+                                                    <td>Feb 28, 2025</td>
+                                                    <td><button className="btn btn-outline-primary btn-sm">Re-download</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div className="d-flex align-items-center">
+                                                            <div className="bg-success-light rounded p-2 me-3">
+                                                                <i className="uil uil-brush-alt text-success"></i>
+                                                            </div>
+                                                            <div>
+                                                                <h6 className="mb-0">Modern Logo Collection</h6>
+                                                                <small className="text-muted">50 premium logos</small>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>Graphics</td>
+                                                    <td>Feb 27, 2025</td>
+                                                    <td><button className="btn btn-outline-primary btn-sm">Re-download</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                    
+                    {activeTab === 'settings' && (
+                        <div className="card rounded shadow p-4">
+                            <h5 className="mb-4">Account Settings</h5>
+                            <form>
+                                <div className="row">                                    <div className="col-md-6 mb-3">
+                                        <label className="form-label">Full Name</label>
+                                        <input type="text" className="form-control" defaultValue={user.name} />
+                                    </div>
+                                    <div className="col-md-6 mb-3">
+                                        <label className="form-label">Email Address</label>
+                                        <input type="email" className="form-control" defaultValue={user.email} />
+                                    </div>
+                                    <div className="col-12 mb-3">
+                                        <label className="form-label">Password</label>
+                                        <button className="btn btn-outline-secondary d-block">Change Password</button>
+                                    </div>
+                                    <div className="col-12">
+                                        <h6 className="mb-3">Email Preferences</h6>
+                                        <div className="form-check mb-2">
+                                            <input className="form-check-input" type="checkbox" id="emailNews" defaultChecked />
+                                            <label className="form-check-label" htmlFor="emailNews">
+                                                New resources notification
+                                            </label>
+                                        </div>
+                                        <div className="form-check mb-2">
+                                            <input className="form-check-input" type="checkbox" id="emailPromotions" />
+                                            <label className="form-check-label" htmlFor="emailPromotions">
+                                                Promotional emails
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div className="col-12 mt-3">
+                                        <button className="btn btn-primary me-2">Save Changes</button>
+                                        <button className="btn btn-outline-secondary">Cancel</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     </section>
@@ -83,7 +325,7 @@ export default function Wallet() {
       >
         <Modal.Header>
           <Modal.Title className='d-flex w-100'>
-            <h5 className="modal-title"><img src={logoDark} alt=""/></h5>
+            <h5 className="modal-title"><img src={logopixel} alt=""/></h5>
             <button type="button" className="btn-close d-flex align-items-center text-dark" onClick={()=>setShow(false)}><i className="uil uil-times fs-4 text-muted"></i></button>
           </Modal.Title>
         </Modal.Header>

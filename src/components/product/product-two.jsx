@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { nftData } from '../../data/data';
+import { resourceData } from '../../data/data';
 
 export default function ProductTwo() {
 
     let [selectedCategory, setSelectedCategory] = useState(null);
-    const filterData = selectedCategory ? nftData.filter((item) => item.category === selectedCategory) : nftData
+    const filterData = selectedCategory ? resourceData.filter((item) => item.category === selectedCategory) : resourceData
     
     const matchCategory = (category)=>{
         setSelectedCategory(category)
@@ -16,7 +16,7 @@ export default function ProductTwo() {
         <div className="col-md-8">
             <div className="section-title mb-4 pb-2">
                 <h4 className="title mb-2">Explore Your Items</h4>
-                <p className="text-muted mb-0">Explore the latest NFTs digital product</p>
+                <p className="text-muted mb-0">Explore the latest Digital Resources</p>
             </div>
         </div>
 

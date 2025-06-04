@@ -7,10 +7,10 @@ import Navbar from '../../components/navbar'
 import Subscription from '../../components/subscription'
 import Footer from '../../components/footer'
 
-import { nftData } from '../../data/data'
+import { resourceData } from '../../data/data'
 
 export default function ExploreFour() {
-  const [productData, setProductData] = useState(nftData);
+  const [productData, setProductData] = useState(resourceData);
     
   useEffect(()=>{
       const interval = setTimeout(()=>{
@@ -20,7 +20,7 @@ export default function ExploreFour() {
   })
 
   const remainingDays = () => {
-      const formattedData = nftData.map((item) => ({
+      const formattedData = resourceData.map((item) => ({
           ...item,
           remaining: calculateDays(item.date),
       }));
@@ -46,10 +46,9 @@ export default function ExploreFour() {
         <div className="bg-overlay bg-gradient-overlay-2"></div>
         <div className="container">
             <div className="row mt-5 justify-content-center">
-                <div className="col-12">
-                    <div className="title-heading text-center">
-                        <h5 className="heading fw-semibold sub-heading text-white title-dark">Marketplace</h5>
-                        <p className="text-white-50 para-desc mx-auto mb-0">Explore the latest NFTs digital product</p>
+                <div className="col-12">                    <div className="title-heading text-center">
+                        <h5 className="heading fw-semibold sub-heading text-white title-dark">Digital Resources</h5>
+                        <p className="text-white-50 para-desc mx-auto mb-0">Explore premium digital resources and templates</p>
                     </div>
                 </div>
             </div>
@@ -57,7 +56,7 @@ export default function ExploreFour() {
             <div className="position-middle-bottom">
                 <nav aria-label="breadcrumb" className="d-block">
                     <ul className="breadcrumb breadcrumb-muted mb-0 p-0">
-                        <li className="breadcrumb-item"><Link to="/">Superex</Link></li>
+                        <li className="breadcrumb-item"><Link to="/">Pixev</Link></li>
                         <li className="breadcrumb-item active" aria-current="page">Explore</li>
                     </ul>
                 </nav>
@@ -77,7 +76,7 @@ export default function ExploreFour() {
             <div className="row">
                 <div className="col-lg-3 col-md-6">
                     <div className="sticky-bar">
-                        <h5 className="mb-0">NFT Filters</h5>
+                        <h5 className="mb-0">Resource Filters</h5>
                         <div className="p-4 rounded-md shadow mt-4">
                             <div>
                                 <h6>Orders By:</h6>
@@ -96,51 +95,50 @@ export default function ExploreFour() {
                                     </div>
                                 </form>
                             </div>
-                            
-                            <div className="mt-4">
+                              <div className="mt-4">
                                 <h6>Catagories By:</h6>
                                 <form>
                                     <div className="form-check align-items-center d-flex mb-0">
-                                        <input className="form-check-input" type="checkbox" value="" id="GamesCatagory"/>
-                                        <label className="form-check-label fw-bold ms-2" htmlFor="GamesCatagory">Games</label>
+                                        <input className="form-check-input" type="checkbox" value="" id="TemplatesCatagory"/>
+                                        <label className="form-check-label fw-bold ms-2" htmlFor="TemplatesCatagory">Templates</label>
                                     </div>
                                     <div className="form-check align-items-center d-flex mb-0">
-                                        <input className="form-check-input" type="checkbox" value="" id="ArtCatagory"/>
-                                        <label className="form-check-label fw-bold ms-2" htmlFor="ArtCatagory">Art</label>
+                                        <input className="form-check-input" type="checkbox" value="" id="GraphicsCatagory"/>
+                                        <label className="form-check-label fw-bold ms-2" htmlFor="GraphicsCatagory">Graphics</label>
                                     </div>
                                     <div className="form-check align-items-center d-flex mb-0">
-                                        <input className="form-check-input" type="checkbox" value="" id="MusicCatagory"/>
-                                        <label className="form-check-label fw-bold ms-2" htmlFor="MusicCatagory">Music</label>
+                                        <input className="form-check-input" type="checkbox" value="" id="PhotosCatagory"/>
+                                        <label className="form-check-label fw-bold ms-2" htmlFor="PhotosCatagory">Photos</label>
+                                    </div>
+                                    <div className="form-check align-items-center d-flex mb-0">
+                                        <input className="form-check-input" type="checkbox" value="" id="FontsCatagory"/>
+                                        <label className="form-check-label fw-bold ms-2" htmlFor="FontsCatagory">Fonts</label>
+                                    </div>
+                                    <div className="form-check align-items-center d-flex mb-0">
+                                        <input className="form-check-input" type="checkbox" value="" id="UIKitsCatagory"/>
+                                        <label className="form-check-label fw-bold ms-2" htmlFor="UIKitsCatagory">UI Kits</label>
+                                    </div>
+                                    <div className="form-check align-items-center d-flex mb-0">
+                                        <input className="form-check-input" type="checkbox" value="" id="AudioCatagory"/>
+                                        <label className="form-check-label fw-bold ms-2" htmlFor="AudioCatagory">Audio</label>
                                     </div>
                                     <div className="form-check align-items-center d-flex mb-0">
                                         <input className="form-check-input" type="checkbox" value="" id="VideoCatagory"/>
                                         <label className="form-check-label fw-bold ms-2" htmlFor="VideoCatagory">Video</label>
                                     </div>
-                                    <div className="form-check align-items-center d-flex mb-0">
-                                        <input className="form-check-input" type="checkbox" value="" id="MemesCatagory"/>
-                                        <label className="form-check-label fw-bold ms-2" htmlFor="MemesCatagory">Memes</label>
-                                    </div>
-                                    <div className="form-check align-items-center d-flex mb-0">
-                                        <input className="form-check-input" type="checkbox" value="" id="IllustrationCatagory"/>
-                                        <label className="form-check-label fw-bold ms-2" htmlFor="IllustrationCatagory">Illustration</label>
-                                    </div>
-                                    <div className="form-check align-items-center d-flex mb-0">
-                                        <input className="form-check-input" type="checkbox" value="" id="GIFsCatagory"/>
-                                        <label className="form-check-label fw-bold ms-2" htmlFor="GIFsCatagory">GIFs</label>
-                                    </div>
                                 </form>
                             </div>
 
                             <div className="mt-4">
-                                <h6>Creators By:</h6>
+                                <h6>Authors By:</h6>
                                 <form>
                                     <div className="form-check align-items-center d-flex mb-0">
-                                        <input className="form-check-input" type="checkbox" value="" id="AllCreators"/>
-                                        <label className="form-check-label fw-bold ms-2" htmlFor="AllCreators">All Creators</label>
+                                        <input className="form-check-input" type="checkbox" value="" id="AllAuthors"/>
+                                        <label className="form-check-label fw-bold ms-2" htmlFor="AllAuthors">All Authors</label>
                                     </div>
                                     <div className="form-check align-items-center d-flex mb-0">
-                                        <input className="form-check-input" type="checkbox" value="" id="VerifyCreators"/>
-                                        <label className="form-check-label fw-bold ms-2" htmlFor="VerifyCreators">Verified Creators</label>
+                                        <input className="form-check-input" type="checkbox" value="" id="VerifyAuthors"/>
+                                        <label className="form-check-label fw-bold ms-2" htmlFor="VerifyAuthors">Verified Authors</label>
                                     </div>
                                 </form>
                             </div>
@@ -174,10 +172,8 @@ export default function ExploreFour() {
                                   <Link to={`/item-detail-one/${item.id}`}><img src={item.product} className="img-fluid" alt=""/></Link>
                                   <div className="position-absolute top-0 start-0 m-2">
                                       <Link to="#" className="badge badge-link bg-primary">{item.tag}</Link>
-                                  </div>
-
-                                  <div className="position-absolute top-0 end-0 m-2">
-                                      <Link to={`/item-detail-one/${item.id}`} className="btn btn-pills btn-icon"><i className="uil uil-shopping-cart-alt"></i></Link>
+                                  </div>                                  <div className="position-absolute top-0 end-0 m-2">
+                                      <Link to={`/item-detail-one/${item.id}`} className="btn btn-pills btn-primary btn-sm">Premium</Link>
                                   </div>
                                   {item.showDate && (
                                       <div className="position-absolute bottom-0 start-0 m-2 bg-gradient-primary text-white title-dark rounded-pill px-3">
@@ -187,11 +183,9 @@ export default function ExploreFour() {
                               </div>
 
                               <div className="card-body content position-relative p-0 mt-3">
-                                  <Link to={`/item-detail-one/${item.id}`} className="title text-dark h6">{item.name}</Link>
-
-                                  <div className="d-flex justify-content-between mt-2">
-                                      <small className="rate fw-bold">{item.value}</small>
-                                      <small className="text-dark fw-bold">1 out of 10</small>
+                                  <Link to={`/item-detail-one/${item.id}`} className="title text-dark h6">{item.name}</Link>                                  <div className="d-flex justify-content-between mt-2">
+                                      <small className="rate fw-bold">Premium</small>
+                                      <small className="text-dark fw-bold">{item.category}</small>
                                   </div>
                               </div>
                             </div>

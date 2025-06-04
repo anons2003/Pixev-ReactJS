@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import logoDark from '../../assets/images/logo-dark.png'
-import logoWhite from '../../assets/images/logo-white.png'
+import logopixel from '../../assets/images/logopixel.svg'
 
 import error from '../../assets/images/error.png'
 import BackToHome from '../../components/back-to-home'
@@ -14,10 +13,9 @@ export default function Error() {
           <div className="row">
               <div className="col-12 p-0">
                   <div className="d-flex flex-column min-vh-100 p-4">
-                      <div className="text-center">
-                          <Link to="/">
-                            <img src={logoDark} className="error-dark" alt=""/>
-                            <img src={logoWhite} className="error-light" alt=""/>
+                      <div className="text-center">                          <Link to="/">
+                            <img src={logopixel} className="error-dark" alt=""/>
+                            <img src={logopixel} className="error-light" alt=""/>
                             </Link>
                       </div>
 
@@ -32,7 +30,7 @@ export default function Error() {
                       </div>
 
                       <div className="text-center">
-                          <small className="mb-0 text-muted">© {new Date().getFullYear()} Superex. Design & Develop with <i className="mdi mdi-heart text-danger"></i> by <Link to="https://shreethemes.in/" target="_blank" className="text-reset">Shreethemes</Link>.</small>
+                          <small className="mb-0 text-muted">© {new Date().getFullYear()} Pixev. Design & Develop with <i className="mdi mdi-heart text-danger"></i> by <Link to="https://www.facebook.com/suunhi.6623" target="_blank" className="text-reset">Pixev</Link>.</small>
                       </div>
                   </div>
               </div>

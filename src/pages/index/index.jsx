@@ -53,13 +53,12 @@ export default function Index() {
         <div className="bg-overlay bg-gradient-primary opacity-8"></div>
         <div className="container">
             <div className="row align-items-center">
-                <div className="col-lg-7 col-md-6">
-                    <div className="title-heading">
-                        <h6 className="text-light title-dark fw-normal">Explore, Create & Collect NFTs</h6>
-                        <h4 className="heading text-white title-dark fw-bold mb-3">Join The New Era of <br/>
+                <div className="col-lg-7 col-md-6">                    <div className="title-heading">
+                        <h6 className="text-light title-dark fw-normal">Discover, Download & Create Amazing</h6>
+                        <h4 className="heading text-white title-dark fw-bold mb-3">Premium Digital Resources for <br/>
                             <TypeAnimation
                                 sequence={[
-                                    'Musics',1000, 'Musics',1000,'Illustrations',1000,'Videos',1000,'GIFs',1000
+                                    'Web Design',1000, 'Graphics',1000,'Templates',1000,'UI/UX',1000,'Development',1000
                                 ]}
                                 wrapper="span"
                                 speed={10}
@@ -68,10 +67,10 @@ export default function Index() {
                                 className='typewrite'
                             />
                         </h4>
-                        <p className="text-white-50 para-desc mb-0 mb-0">We are a huge marketplace dedicated to connecting great artists of all Superex with their fans and unique token collectors!</p>
+                        <p className="text-white-50 para-desc mb-0 mb-0">We are a huge marketplace dedicated to connecting talented designers and developers with creative professionals seeking high-quality digital assets!</p>
                     
                         <div className="mt-4 pt-2">
-                            <Link to="/aboutus" className="btn btn-pills btn-outline-light-white">Discover Now</Link>
+                            <Link to="/aboutus" className="btn btn-pills btn-outline-light-white">Explore Resources</Link>
                         </div>
                     </div>
                 </div>
@@ -93,17 +92,16 @@ export default function Index() {
                         </div>
 
                         <div className="nft-image rounded-md mt-3 position-relative overflow-hidden shadow">
-                            <Link to="/item-detail-one"><img src={heroImg} className="img-fluid" alt=""/></Link>
-                            <div className="position-absolute top-0 start-0 m-2">
-                                <Link to="#" className="badge badge-link bg-primary">GIFs</Link>
+                            <Link to="/item-detail-one"><img src={heroImg} className="img-fluid" alt=""/></Link>                            <div className="position-absolute top-0 start-0 m-2">
+                                <Link to="#" className="badge badge-link bg-primary">Premium</Link>
                             </div>
 
                             <div className="position-absolute top-0 end-0 m-2">
-                                <Link to="/item-detail-one" className="btn btn-pills btn-icon"><i className="uil uil-shopping-cart-alt"></i></Link>
+                                <Link to="/item-detail-one" className="btn btn-pills btn-icon"><i className="uil uil-download-alt"></i></Link>
                             </div>
 
                             <div className="position-absolute bottom-0 start-0 m-2 bg-gradient-primary text-white title-dark rounded-pill px-3 h5">
-                                <i className="uil uil-clock"></i> <small id="auction-item-9" className="fw-bold">{days + " : " + hours + " : " + minutes + " : " + seconds}</small>
+                                <i className="uil uil-star"></i> <small className="fw-bold">Featured Resource</small>
                             </div>
                         </div>
 
@@ -127,10 +125,9 @@ export default function Index() {
 
         <div className="container mt-100 mt-60">
             <div className="row justify-content-center">
-                <div className="col">
-                    <div className="section-title text-center mb-4 pb-2">
-                        <h4 className="title mb-4">Explore Hot Products</h4>
-                        <p className="text-muted para-desc mb-0 mx-auto">We are a huge marketplace dedicated to connecting great artists of all Superex with their fans and unique token collectors!</p>
+                <div className="col">                    <div className="section-title text-center mb-4 pb-2">
+                        <h4 className="title mb-4">Trending Digital Resources</h4>
+                        <p className="text-muted para-desc mb-0 mx-auto">We are a huge marketplace dedicated to connecting talented designers and developers with creative professionals seeking high-quality digital assets!</p>
                     </div>
                 </div>
             </div>
@@ -143,19 +140,17 @@ export default function Index() {
                 <div className="bg-half-100 bg-gradient-primary">
                     <div className="container">
                         <div className="row justify-content-center">
-                            <div className="col">
-                                <div className="section-title text-center mb-4 pb-2">
-                                    <h4 className="title text-white title-dark mb-4">Join the fastest growing Superex NFTs <br/> with more than 2000+ NFTs</h4>
-                                    <p className="text-white-50 para-desc mb-0 mx-auto">We are a huge marketplace dedicated to connecting great artists of all Superex with their fans and unique token collectors!</p>
+                            <div className="col">                                <div className="section-title text-center mb-4 pb-2">
+                                    <h4 className="title text-white title-dark mb-4">Join the fastest growing Digital Resources marketplace <br/> with more than 10,000+ premium assets</h4>
+                                    <p className="text-white-50 para-desc mb-0 mx-auto">We are a huge marketplace dedicated to connecting talented designers and developers with creative professionals seeking high-quality digital assets!</p>
                                 </div>
                             </div>
                         </div>
 
                         <div className="row">
-                            <div className="col-md-6 mt-4 pt-2">
-                                <div className="card p-4 rounded-md shadow bg-white">
+                            <div className="col-md-6 mt-4 pt-2">                                <div className="card p-4 rounded-md shadow bg-white">
                                     <h4 className="mb-4">Join our community</h4>
-                                    <p className="text-muted mb-0">We are a huge marketplace dedicated to connecting great artists of all Superex.</p>
+                                    <p className="text-muted mb-0">We are a huge marketplace dedicated to connecting talented designers and developers with creative professionals.</p>
 
                                     <div className="mt-3">
                                         <Link to="/aboutus" className="btn btn-link primary text-dark">Read More <i className="uil uil-arrow-right"></i></Link>
@@ -167,10 +162,9 @@ export default function Index() {
                                 </div>
                             </div>
                             
-                            <div className="col-md-6 mt-4 pt-2">
-                                <div className="card p-4 rounded-md shadow bg-white">
-                                    <h4 className="mb-4">Learn more about Superex</h4>
-                                    <p className="text-muted mb-0">We are a huge marketplace dedicated to connecting great artists of all Superex.</p>
+                            <div className="col-md-6 mt-4 pt-2">                                <div className="card p-4 rounded-md shadow bg-white">
+                                    <h4 className="mb-4">Learn more about Pixev</h4>
+                                    <p className="text-muted mb-0">We are a huge marketplace dedicated to connecting talented designers and developers with creative professionals.</p>
 
                                     <div className="mt-3">
                                         <Link to="/aboutus" className="btn btn-link primary text-dark">Read More <i className="uil uil-arrow-right"></i></Link>

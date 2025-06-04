@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import BackToHome from '../../components/back-to-home'
 
 import bg1 from '../../assets/images/bg/03.jpg'
-import logoLight from '../../assets/images/logo-light.png'
+import logopixel from '../../assets/images/logopixel.svg'
 
 export default function Comingsoon() {
   return (
@@ -17,7 +17,7 @@ export default function Comingsoon() {
                 <div className="col-12 p-0">
                     <div className="d-flex flex-column min-vh-100 p-4">
                         <div className="text-center">
-                            <Link to="/"><img src={logoLight} alt=""/></Link>
+                            <Link to="/"><img src={logopixel} alt=""/></Link>
                         </div>
 
                         <div className="title-heading text-center my-auto">
@@ -35,7 +35,7 @@ export default function Comingsoon() {
                         </div>
 
                         <div className="text-center">
-                            <small className="mb-0 text-light title-dark">© {new Date().getFullYear()} Superex. Design & Develop with <i className="mdi mdi-heart text-danger"></i> by <Link to="https://shreethemes.in/" target="_blank" className="text-reset">Shreethemes</Link>.</small>
+                            <small className="mb-0 text-light title-dark">© {new Date().getFullYear()} Pixev. Design & Develop with <i className="mdi mdi-heart text-danger"></i> by <Link to="https://www.facebook.com/suunhi.6623" target="_blank" className="text-reset">Pixev</Link>.</small>
                         </div>
                     </div>
                 </div>

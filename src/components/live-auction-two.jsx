@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { nftData } from '../data/data'
+import { resourceData } from '../data/data'
 
 export default function LiveAuctionTwo() {
-    const [productData, setProductData] = useState(nftData);
+    const [productData, setProductData] = useState(resourceData);
     
     useEffect(()=>{
         const interval = setTimeout(()=>{
@@ -13,7 +13,7 @@ export default function LiveAuctionTwo() {
     })
 
     const remainingDays = () => {
-        const formattedData = nftData.map((item) => ({
+        const formattedData = resourceData.map((item) => ({
             ...item,
             remaining: calculateDays(item.date),
         }));
@@ -32,12 +32,11 @@ export default function LiveAuctionTwo() {
         return { hours, minutes, seconds, days }
     }
   return (
-    <>
-            <div className="row justify-content-center">
+    <>            <div className="row justify-content-center">
                 <div className="col">
                     <div className="section-title text-center mb-5 pb-3">
-                        <h4 className="title mb-4">Live Auctions</h4>
-                        <p className="text-muted para-desc mb-0 mx-auto">We are a huge marketplace dedicated to connecting great artists of all Superex with their fans and unique token collectors!</p>
+                        <h4 className="title mb-4">Featured Resources</h4>
+                        <p className="text-muted para-desc mb-0 mx-auto">We are a huge marketplace dedicated to connecting talented designers and developers with creative professionals seeking high-quality digital assets!</p>
                     </div>
                 </div>
             </div>
@@ -61,22 +60,18 @@ export default function LiveAuctionTwo() {
                                     </div>
                                     <div className="position-absolute top-0 end-0 m-2">
                                         <span className="like-icon shadow-sm"><Link to="#" className="text-muted icon"><i className="mdi mdi-18px mdi-heart mb-0"></i></Link></span>
-                                    </div>                                
-
-                                    <div className="position-absolute bottom-0 start-0 m-2 bg-gradient-primary text-white title-dark rounded-pill px-3">
-                                    <i className="uil uil-clock"></i> <small id="auction-item-1" className="fw-bold">{item.remaining?.days + " : " + item.remaining?.hours + " : " + item.remaining?.minutes + " : " + item.remaining?.seconds}</small>
+                                    </div>                                    <div className="position-absolute bottom-0 start-0 m-2 bg-gradient-primary text-white title-dark rounded-pill px-3">
+                                    <i className="uil uil-file-download-alt"></i> <small className="fw-bold">Premium</small>
                                     </div>
                                 </div>
 
                                 <div className="card-body content position-relative p-0 mt-3">
-                                    <Link to={`/item-detail-one/${item.id}`} className="title text-dark h6">{item.name}</Link>
-
-                                    <div className="d-flex align-items-center justify-content-between mt-3">
+                                    <Link to={`/item-detail-one/${item.id}`} className="title text-dark h6">{item.name}</Link>                                    <div className="d-flex align-items-center justify-content-between mt-3">
                                         <div className="">
-                                            <small className="mb-0 d-block fw-semibold">Current Bid:</small>
-                                            <small className="rate fw-bold">{item.value}</small>
+                                            <small className="mb-0 d-block fw-semibold">Access:</small>
+                                            <small className="rate fw-bold">Premium</small>
                                         </div>
-                                        <Link to={`/item-detail-one/${item.id}`} className="btn btn-icon btn-pills btn-primary"><i className="uil uil-shopping-bag"></i></Link>
+                                        <Link to={`/item-detail-one/${item.id}`} className="btn btn-icon btn-pills btn-primary"><i className="uil uil-download-alt"></i></Link>
                                     </div>
                                 </div>
                             </div>

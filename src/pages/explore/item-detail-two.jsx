@@ -121,7 +121,7 @@ export default function ItemDetailTwo() {
                                     <div className="tab-content mt-4 pt-2">
                                       {activeTab === 1 && (
                                         <div className="tab-pane fade show active">
-                                            <p className="text-muted">Hey guys! New exploration about NFT Marketplace Web Design, this time I'm inspired by one of my favorite NFT website called Superex (with crypto payment)! What do you think?</p>
+                                            <p className="text-muted">Hey guys! New exploration about Digital Resources Marketplace Web Design, this time I'm inspired by one of my favorite marketplace website called Pixev (with crypto payment)! What do you think?</p>
                                             <p className="text-muted">What does it mean? Biomechanics is the study of the structure, function and motion of the mechanical aspects of biological systems, at any level from whole organisms to organs, cells and cell organelles, using the methods of mechanics. Biomechanics is a branch of biophysics.</p>
                                             <h6>Owner</h6>
             

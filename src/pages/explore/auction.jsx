@@ -5,12 +5,12 @@ import Navbar from '../../components/navbar'
 import Subscription from '../../components/subscription'
 import Footer from '../../components/footer'
 
-import { nftData } from '../../data/data'
+import { resourceData } from '../../data/data'
 
 import bg1 from '../../assets/images/bg/01.jpg'
 
 export default function Auction() {
-  const [productData, setProductData] = useState(nftData);
+  const [productData, setProductData] = useState(resourceData);
     
   useEffect(()=>{
       const interval = setTimeout(()=>{
@@ -20,7 +20,7 @@ export default function Auction() {
   })
 
   const remainingDays = () => {
-      const formattedData = nftData.map((item) => ({
+      const formattedData = resourceData.map((item) => ({
           ...item,
           remaining: calculateDays(item.date),
       }));
@@ -45,19 +45,17 @@ export default function Auction() {
         <div className="bg-overlay bg-gradient-overlay-2"></div>
         <div className="container">
             <div className="row mt-5 justify-content-center">
-                <div className="col-12">
-                    <div className="title-heading text-center">
-                        <h5 className="heading fw-semibold sub-heading text-white title-dark">Live Auctions</h5>
-                        <p className="text-white-50 para-desc mx-auto mb-0">Please check live auctions of digital arts</p>
+                <div className="col-12">                    <div className="title-heading text-center">
+                        <h5 className="heading fw-semibold sub-heading text-white title-dark">Featured Resources</h5>
+                        <p className="text-white-50 para-desc mx-auto mb-0">Discover our most popular and trending digital resources</p>
                     </div>
                 </div>
             </div>
 
             <div className="position-middle-bottom">
-                <nav aria-label="breadcrumb" className="d-block">
-                    <ul className="breadcrumb breadcrumb-muted mb-0 p-0">
-                        <li className="breadcrumb-item"><Link to="/">Superex</Link></li>
-                        <li className="breadcrumb-item active" aria-current="page">Auction</li>
+                <nav aria-label="breadcrumb" className="d-block">                    <ul className="breadcrumb breadcrumb-muted mb-0 p-0">
+                        <li className="breadcrumb-item"><Link to="/">Pixev</Link></li>
+                        <li className="breadcrumb-item active" aria-current="page">Featured</li>
                     </ul>
                 </nav>
             </div>
@@ -92,22 +90,18 @@ export default function Auction() {
                                     </div>
                                     <div className="position-absolute top-0 end-0 m-2">
                                         <span className="like-icon shadow-sm"><Link to="#" className="text-muted icon"><i className="mdi mdi-18px mdi-heart mb-0"></i></Link></span>
-                                    </div>                                
-
-                                    <div className="position-absolute bottom-0 start-0 m-2 bg-gradient-primary text-white title-dark rounded-pill px-3">
-                                    <i className="uil uil-clock"></i> <small id="auction-item-1" className="fw-bold">{item.remaining?.days + " : " + item.remaining?.hours + " : " + item.remaining?.minutes + " : " + item.remaining?.seconds}</small>
+                                    </div>                                    <div className="position-absolute bottom-0 start-0 m-2 bg-gradient-primary text-white title-dark rounded-pill px-3">
+                                    <i className="uil uil-file-download-alt"></i> <small className="fw-bold">Premium</small>
                                     </div>
                                 </div>
 
                                 <div className="card-body content position-relative p-0 mt-3">
-                                    <Link to={`/item-detail-one/${item.id}`} className="title text-dark h6">{item.name}</Link>
-
-                                    <div className="d-flex align-items-center justify-content-between mt-3">
+                                    <Link to={`/item-detail-one/${item.id}`} className="title text-dark h6">{item.name}</Link>                                    <div className="d-flex align-items-center justify-content-between mt-3">
                                         <div className="">
-                                            <small className="mb-0 d-block fw-semibold">Current Bid:</small>
+                                            <small className="mb-0 d-block fw-semibold">Price:</small>
                                             <small className="rate fw-bold">{item.value}</small>
                                         </div>
-                                        <Link to={`/item-detail-one/${item.id}`} className="btn btn-icon btn-pills btn-primary"><i className="uil uil-shopping-bag"></i></Link>
+                                        <Link to={`/item-detail-one/${item.id}`} className="btn btn-icon btn-pills btn-primary"><i className="uil uil-download-alt"></i></Link>
                                     </div>
                                 </div>
                             </div>
