@@ -8,6 +8,7 @@ import Subscription from '../../components/subscription'
 import Footer from '../../components/footer'
 
 import { resourceData } from '../../data/data'
+import LikeButton from '../../components/LikeButton'
 
 import Select from 'react-select';
 
@@ -122,8 +123,7 @@ export default function ExploreTwo() {
         </div>
 
         <div className="container">
-            <div className="row row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1">
-              {productData.map((item,index)=>{
+            <div className="row row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1">              {productData.map((item,index)=>{
                 return(
                     <div className="col mt-4 pt-2" key={index}>
                         <div className="card nft-items nft-primary rounded-md shadow overflow-hidden mb-1 p-3">
@@ -140,7 +140,17 @@ export default function ExploreTwo() {
                                 </Link>
                             </div>
                             
-                            <span className="like-icon shadow-sm"><Link to="#" className="text-muted icon"><i className="mdi mdi-18px mdi-heart mb-0"></i></Link></span>
+                            <LikeButton 
+                                itemId={item.id}
+                                itemData={{
+                                    id: item.id,
+                                    title: item.name,
+                                    price: 'Premium',
+                                    image: item.product,
+                                    creator: 'Creator',
+                                    category: item.category
+                                }}
+                            />
                         </div>
 
                         <div className="nft-image rounded-md mt-3 position-relative overflow-hidden">
@@ -155,14 +165,13 @@ export default function ExploreTwo() {
                                     <i className="uil uil-clock"></i> <small id="auction-item-1" className="fw-bold">{item.remaining?.days + " : " + item.remaining?.hours + " : " + item.remaining?.minutes + " : " + item.remaining?.seconds}</small>
                                 </div>
                             )}
-                        </div>
-
-                        <div className="card-body content position-relative p-0 mt-3">
-                            <Link to={`/item-detail-one/${item.id}`} className="title text-dark h6">{item.name}</Link>                            <div className="d-flex justify-content-between mt-2">
-                                <small className="rate fw-bold">Premium</small>
-                                <small className="text-dark fw-bold">{item.category}</small>
+                        </div>                            <div className="card-body content position-relative p-0 mt-3">
+                                <Link to={`/item-detail-one/${item.id}`} className="title text-dark h6">{item.name}</Link>
+                                <div className="d-flex justify-content-between mt-2">
+                                    <small className="rate fw-bold">Premium</small>
+                                    <small className="text-dark fw-bold">{item.category}</small>
+                                </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                 )

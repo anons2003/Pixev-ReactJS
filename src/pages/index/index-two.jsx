@@ -5,6 +5,7 @@ import Navbar from '../../components/navbar'
 import ProductTwo from '../../components/product/product-two';
 import CreaterTwo from '../../components/creater/creater-two';
 import PopularCollection from '../../components/popular-collection';
+import LikeButton from '../../components/LikeButton'
 import Footer from '../../components/footer';
 
 import { resourceData } from '../../data/data'
@@ -65,10 +66,13 @@ export default function IndexTwo() {
                                       <Link to={`/item-detail-one/${item.id}`}><img src={item.product} className="img-fluid" alt=""/></Link>
                                       <div className="position-absolute top-0 start-0 m-3">
                                           <Link to="#" className="badge badge-link bg-primary">{item.tag}</Link>
+                                      </div>                                      <div className="position-absolute top-0 end-0 m-3">
+                                          <LikeButton 
+                                              itemId={item.id}
+                                              className="like-icon shadow-sm"
+                                              showAnimation={true}
+                                          />
                                       </div>
-                                      <div className="position-absolute top-0 end-0 m-3">
-                                          <span className="like-icon shadow-sm"><Link to="#" className="text-muted icon"><i className="mdi mdi-18px mdi-heart mb-0"></i></Link></span>
-                                      </div>                                
                                   </div>
       
                                   <div className="card-body content position-relative">

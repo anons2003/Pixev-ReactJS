@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { resourceData } from '../../data/data'
+import LikeButton from '../LikeButton'
 
 export default function ProductThree() {
     let [selectCategory, setSelectCategory] = useState(null)
@@ -34,8 +35,7 @@ export default function ProductThree() {
               </div>
           </div>
 
-        <div className="row row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1 g-4" id="grid">
-            {fileterData.slice(0,8).map((item,index)=>{
+        <div className="row row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1 g-4" id="grid">            {fileterData.slice(0,8).map((item,index)=>{
                 return(
                     <div className="col picture-item" key={index}>
                         <div className="card bg-white nft-items nft-primary rounded-md shadow overflow-hidden mb-1">
@@ -45,8 +45,18 @@ export default function ProductThree() {
                                     <Link to="#" className="badge badge-link bg-primary">{item.tag}</Link>
                                 </div>
                                 <div className="position-absolute top-0 end-0 m-3">
-                                    <span className="like-icon shadow-sm"><Link to="#" className="text-muted icon"><i className="mdi mdi-18px mdi-heart mb-0"></i></Link></span>
-                                </div>                                
+                                    <LikeButton 
+                                        itemId={item.id}
+                                        itemData={{
+                                            id: item.id,
+                                            title: item.name,
+                                            price: item.price,
+                                            image: item.product,
+                                            creator: 'Creator',
+                                            category: item.category
+                                        }}
+                                    />
+                                </div>
                             </div>
 
                             <div className="card-body content position-relative">

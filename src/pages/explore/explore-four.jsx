@@ -8,6 +8,7 @@ import Subscription from '../../components/subscription'
 import Footer from '../../components/footer'
 
 import { resourceData } from '../../data/data'
+import LikeButton from '../../components/LikeButton'
 
 export default function ExploreFour() {
   const [productData, setProductData] = useState(resourceData);
@@ -147,8 +148,7 @@ export default function ExploreFour() {
                 </div>
 
                 <div className="col-lg-9 col-md-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <div className="row row-cols-xl-3 row-cols-lg-2 row-cols-1">
-                      {productData.map((item,index)=>{
+                    <div className="row row-cols-xl-3 row-cols-lg-2 row-cols-1">                      {productData.map((item,index)=>{
                         return(
                           <div className="col mt-4 pt-2" key={index}>
                             <div className="card nft-items nft-primary rounded-md shadow overflow-hidden mb-1 p-3">
@@ -165,7 +165,17 @@ export default function ExploreFour() {
                                       </Link>
                                   </div>
                                   
-                                  <span className="like-icon shadow-sm"><Link to="#" className="text-muted icon"><i className="mdi mdi-18px mdi-heart mb-0"></i></Link></span>
+                                  <LikeButton 
+                                      itemId={item.id}
+                                      itemData={{
+                                          id: item.id,
+                                          title: item.name,
+                                          price: 'Premium',
+                                          image: item.product,
+                                          creator: 'Creator',
+                                          category: item.category
+                                      }}
+                                  />
                               </div>
 
                               <div className="nft-image rounded-md mt-3 position-relative overflow-hidden">

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { blogData } from '../data/data'
+import LikeButton from './LikeButton'
 
 export default function Blog() {
   return (
@@ -14,15 +15,24 @@ export default function Blog() {
         </div>
     </div>
 
-    <div className="row g-4">
-        {blogData.slice(0,3).map((item,index)=>{
+    <div className="row g-4">        {blogData.slice(0,3).map((item,index)=>{
             return(
                 <div className="col-lg-4 col-md-6" key={index}>
                     <div className="card blog blog-primary shadow rounded-md overflow-hidden">
                         <div className="position-relative">
                             <img src={item.image} className="img-fluid rounded-md" alt=""/>
                             <div className="position-absolute top-0 end-0 m-3">
-                                <span className="like-icon shadow-sm"><Link to="#" className="text-muted icon"><i className="mdi mdi-18px mdi-heart mb-0"></i></Link></span>
+                                <LikeButton 
+                                    itemId={item.id}
+                                    itemData={{
+                                        id: item.id,
+                                        title: item.title,
+                                        price: 'Free',
+                                        image: item.image,
+                                        creator: item.author,
+                                        category: item.tag
+                                    }}
+                                />
                             </div>
                         </div>
                         <div className="card-body position-relative p-4">

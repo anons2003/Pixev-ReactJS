@@ -15,30 +15,36 @@ const demoUsers = [
   {
     id: 1,
     name: 'Steven Townsend',
+    username: 'steventownsend',
     email: 'steven@pixev.com',
     avatar: null,
     role: 'Premium User',
     plan: 'Premium Monthly',
+    description: 'Digital Asset Collector and Investor',
     downloads: 234,
     joinDate: 'Jan 2024'
   },
   {
     id: 2,
     name: 'Sarah Johnson',
+    username: 'streetboyyy',
     email: 'sarah@pixev.com', 
     avatar: null,
     role: 'Creator',
     plan: 'Creator Pro',
+    description: 'Artist, UX / UI designer, and Entrepreneur',
     downloads: 89,
     joinDate: 'Mar 2024'
   },
   {
     id: 3,
     name: 'Demo User',
+    username: 'demouser',
     email: 'demo@pixev.com',
     avatar: null,
     role: 'Free User', 
     plan: 'Free Plan',
+    description: 'New to the platform',
     downloads: 12,
     joinDate: 'Jun 2024'
   }

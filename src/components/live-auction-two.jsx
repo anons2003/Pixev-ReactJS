@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { resourceData } from '../data/data'
+import LikeButton from './LikeButton'
 
 export default function LiveAuctionTwo() {
     const [productData, setProductData] = useState(resourceData);
@@ -41,8 +42,7 @@ export default function LiveAuctionTwo() {
                 </div>
             </div>
 
-          <div className="row row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1 g-4">
-            {productData.slice(3,7).map((item,index)=>{
+          <div className="row row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1 g-4">            {productData.slice(3,7).map((item,index)=>{
                 return(
                     <div className="col" key={index}>
                             <div className="card nft-items nft-primary rounded-md shadow overflow-hidden mb-1 p-3">
@@ -59,8 +59,18 @@ export default function LiveAuctionTwo() {
                                         <span className="badge badge-link bg-primary">{item.tag}</span>
                                     </div>
                                     <div className="position-absolute top-0 end-0 m-2">
-                                        <span className="like-icon shadow-sm"><Link to="#" className="text-muted icon"><i className="mdi mdi-18px mdi-heart mb-0"></i></Link></span>
-                                    </div>                                    <div className="position-absolute bottom-0 start-0 m-2 bg-gradient-primary text-white title-dark rounded-pill px-3">
+                                        <LikeButton 
+                                            itemId={item.id}
+                                            itemData={{
+                                                id: item.id,
+                                                title: item.name,
+                                                price: item.price,
+                                                image: item.product,
+                                                creator: item.title,
+                                                category: item.category
+                                            }}
+                                        />
+                                    </div><div className="position-absolute bottom-0 start-0 m-2 bg-gradient-primary text-white title-dark rounded-pill px-3">
                                     <i className="uil uil-file-download-alt"></i> <small className="fw-bold">Premium</small>
                                     </div>
                                 </div>

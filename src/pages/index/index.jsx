@@ -6,6 +6,7 @@ import BestCreater from '../../components/creater/best-creater'
 import ProductOne from '../../components/product/product-one'
 import LiveAuction from '../../components/live-auction'
 import Blog from '../../components/blog'
+import LikeButton from '../../components/LikeButton'
 import Footer from '../../components/footer'
 
 
@@ -85,10 +86,13 @@ export default function Index() {
                                             <img src={item} alt="user" className="avatar avatar-sm-sm img-thumbnail border-0 shadow-sm rounded-circle"/>
                                         </Link>
                                     )
-                                })}
-                            </div>
+                                })}                            </div>
                             
-                            <span className="like-icon shadow-sm"><Link to="#" className="text-muted icon"><i className="mdi mdi-18px mdi-heart mb-0"></i></Link></span>
+                            <LikeButton 
+                                itemId={1}
+                                className="like-icon shadow-sm"
+                                showAnimation={true}
+                            />
                         </div>
 
                         <div className="nft-image rounded-md mt-3 position-relative overflow-hidden shadow">

@@ -228,12 +228,16 @@ export const resourceData = [
         creater3:client6,
         createrName:'Steven Townsend',
         title:'@StreetBoy',
-        product:product1,        name:'Modern Web Design Template',
+        product:product1,
+        name:'Modern Web Design Template',
         value:'Premium',
         category:'templates',
         date:'March 29, 2025 6:0:0',
         showDate:true,
-        tag:'Website'
+        tag:'Website',
+        premium: true,
+        format: 'HTML, CSS, JS',
+        type: 'template'
     },
     {
         id: 2,
@@ -242,12 +246,16 @@ export const resourceData = [
         creater3:client3,
         createrName:'Tiffany Betancourt',
         title:'@CutieGirl',
-        product:product2,        name:'Premium Logo Collection',
+        product:product2,
+        name:'Premium Logo Collection',
         value:'$39',
         category:'graphics',
         date:'April 03, 2025 6:0:0',
         showDate:false,
-        tag:'Logos'
+        tag:'Logos',
+        premium: true,
+        format: 'AI, EPS, PNG',
+        type: 'graphics'
     },
     {
         id: 3,
@@ -256,12 +264,16 @@ export const resourceData = [
         creater3:client6,
         createrName:'Mari Harrington',
         title:'@NorseQueen',
-        product:product3,        name:'High-Res Stock Photos Bundle',
-        value:'$19',
+        product:product3,
+        name:'High-Res Stock Photos Bundle',
+        value:'Free',
         category:'photos',
         date:'April 10, 2025 6:0:0',
         showDate:false,
-        tag:'Photography'
+        tag:'Photography',
+        premium: false,
+        format: 'JPG, PNG',
+        type: 'photos'
     },
     {
         id: 4,
@@ -270,12 +282,16 @@ export const resourceData = [
         creater3:client9,
         createrName:'Floyd Glasgow',
         title:'@BigBull',
-        product:product4,        name:'Modern UI Kit Components',
-        value:'$49',
+        product:product4,
+        name:'Modern UI Kit Components',
+        value:'Premium',
         category:'ui-kits',
         date:'April 18, 2025 6:0:0',
         showDate:true,
-        tag:'UI Design'
+        tag:'UI Design',
+        premium: true,
+        format: 'Sketch, Figma, XD',
+        type: 'ui-kit'
     },
     {
         id: 5,
@@ -1323,3 +1339,104 @@ export const resourceCategories = [
         description: 'Business cards, flyers, and print materials'
     }
 ];
+
+// Demo users for testing subscription functionality
+export const demoUsers = {
+  'demo-free@pixev.com': {
+    email: 'demo-free@pixev.com',
+    username: 'FreeUserDemo',
+    description: 'Demo user with free subscription - exploring creative resources',
+    subscriptionPlan: 'free',
+    joinDate: '2024-01-15',
+    downloadHistory: [
+      {
+        id: 1,
+        resourceId: 3,
+        resourceName: 'High-Res Stock Photos Bundle',
+        downloadDate: '2025-06-20',
+        fileSize: '125 MB',
+        category: 'photos'
+      },
+      {
+        id: 2,
+        resourceId: 5,
+        resourceName: 'Basic Icon Set',
+        downloadDate: '2025-06-19',
+        fileSize: '15 MB',
+        category: 'graphics'
+      }
+    ],
+    favorites: [3, 5, 8],
+    uploads: []
+  },
+  'demo-premium@pixev.com': {
+    email: 'demo-premium@pixev.com',
+    username: 'PremiumUserDemo',
+    description: 'Demo user with premium subscription - unlimited creative resources',
+    subscriptionPlan: 'premium',
+    joinDate: '2024-02-01',
+    downloadHistory: [
+      {
+        id: 1,
+        resourceId: 1,
+        resourceName: 'Modern Web Design Template',
+        downloadDate: '2025-06-21',
+        fileSize: '50 MB',
+        category: 'templates'
+      },
+      {
+        id: 2,
+        resourceId: 2,
+        resourceName: 'Premium Logo Collection',
+        downloadDate: '2025-06-20',
+        fileSize: '85 MB',
+        category: 'graphics'
+      },
+      {
+        id: 3,
+        resourceId: 4,
+        resourceName: 'Professional UI Kit',
+        downloadDate: '2025-06-19',
+        fileSize: '120 MB',
+        category: 'templates'
+      },
+      {
+        id: 4,
+        resourceId: 6,
+        resourceName: 'Advanced Animation Pack',
+        downloadDate: '2025-06-18',
+        fileSize: '200 MB',
+        category: 'graphics'
+      },
+      {
+        id: 5,
+        resourceId: 7,
+        resourceName: 'Premium Font Bundle',
+        downloadDate: '2025-06-17',
+        fileSize: '75 MB',
+        category: 'fonts'
+      }
+    ],
+    favorites: [1, 2, 4, 6, 7, 9, 10],
+    uploads: [
+      {
+        id: 101,
+        name: 'Creative Landing Page Template',
+        category: 'templates',
+        uploadDate: '2025-06-15',
+        downloads: 156,
+        likes: 23,
+        earnings: 124.50
+      },
+      {
+        id: 102,
+        name: 'Modern Icon Collection',
+        category: 'graphics',
+        uploadDate: '2025-06-10',
+        downloads: 89,
+        likes: 15,
+        earnings: 67.20
+      }
+    ]
+  }
+};

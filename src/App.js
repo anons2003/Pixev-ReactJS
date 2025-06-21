@@ -3,7 +3,13 @@ import { Route, Routes } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './assets/scss/style.scss'
 import './assets/css/materialdesignicons.min.css'
+import './assets/css/search.css'
 import { UserProvider } from './contexts/UserContext';
+import { SearchProvider } from './contexts/SearchContext';
+import { FavoritesProvider } from './contexts/FavoritesContext';
+import { UserResourcesProvider } from './contexts/UserResourcesContext';
+import { SubscriptionProvider } from './contexts/SubscriptionContext';
+import ProtectedRoute from './components/ProtectedRoute';
 
 import Index from './pages/index';
 import IndexTwo from './pages/index/index-two';
@@ -17,6 +23,7 @@ import ExploreFour from './pages/explore/explore-four';
 import Auction from './pages/explore/auction';
 import ItemDetailOne from './pages/explore/item-detail-one';
 import ItemDetailTwo from './pages/explore/item-detail-two';
+import SearchResults from './pages/SearchResults';
 import Activity from './pages/activity';
 import Wallet from './pages/wallet';
 import Aboutus from './pages/aboutus';
@@ -47,52 +54,58 @@ import Pricing from './pages/pricing';
 
 
 function App() {
-
-
   return (
     <UserProvider>
-      <Routes>
-        <Route path="/" element={<Index/>}/>
-        <Route path="/index-two" element={<IndexTwo/>}/>
-        <Route path="/index-three" element={<IndexThree/>}/>
-        <Route path="/index-four" element={<IndexFour/>}/>
-        <Route path="/index-five" element={<IndexFive/>}/>
-        <Route path='/explore-one' element={<ExploreOne/>}/>
-        <Route path='/explore-two' element={<ExploreTwo/>}/>
-        <Route path='/explore-three' element={<ExploreThree/>}/>
-        <Route path='/explore-four' element={<ExploreFour/>}/>
-        <Route path='/auction' element={<Auction/>}/>
-        <Route path='/item-detail-one' element={<ItemDetailOne/>}/>
-        <Route path='/item-detail-one/:id' element={<ItemDetailOne/>}/>
-        <Route path='/item-detail-Two' element={<ItemDetailTwo/>}/>      <Route path='/activity' element={<Activity/>}/>
-        <Route path='/pricing' element={<Pricing/>}/>
-        <Route path='/wallet' element={<Wallet/>}/>
-        <Route path='/aboutus' element={<Aboutus/>}/>
-        <Route path='/creators' element={<Creators/>}/>
-        <Route path='/creator-profile' element={<CreatorProfile/>}/>
-        <Route path='/creator-profile-edit' element={<CreatorProfileEdit/>}/>
-        <Route path='/become-creator' element={<BecomeCreator/>}/>
-        <Route path='/collections' element={<Collections/>}/>
-        <Route path='/blogs' element={<Blogs/>}/>
-        <Route path='/blog-sidebar' element={<BlogSidebar/>}/>
-        <Route path='/blog-detail' element={<BlogDetail/>}/>
-        <Route path='/blog-detail/:id' element={<BlogDetail/>}/>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/signup' element={<Signup/>}/>
-        <Route path='/reset-password' element={<ResetPassword/>}/>
-        <Route path='/lock-screen' element={<LockScreen/>}/>
-        <Route path='/comingsoon' element={<Comingsoon/>}/>
-        <Route path='/maintenance' element={<Maintenance/>}/>
-        <Route path='/error' element={<Error/>}/>
-        <Route path='/helpcenter-overview' element={<HelpcenterOverview/>}/>
-        <Route path='/helpcenter-faqs' element={<HelpcenterFaqs/>}/>
-        <Route path='/helpcenter-guides' element={<HelpcenterGuides/>}/>
-        <Route path='/helpcenter-support-request' element={<HelpcenterSupportRequest/>}/>
-        <Route path='/upload-work' element={<UploadWork/>}/>
-        <Route path='/terms' element={<Terms/>}/>
-        <Route path='/privacy' element={<Privacy/>}/>
-        <Route path='/contact' element={<Contact/>}/>
-      </Routes>
+      <SearchProvider>
+        <FavoritesProvider>
+          <UserResourcesProvider>
+            <SubscriptionProvider>
+              <Routes>
+          <Route path="/" element={<IndexFive/>}/>
+          <Route path="/index" element={<Index/>}/>
+          <Route path="/index-two" element={<IndexTwo/>}/>
+          <Route path="/index-three" element={<IndexThree/>}/>
+          <Route path="/index-four" element={<IndexFour/>}/>
+          <Route path="/index-five" element={<IndexFive/>}/>
+          <Route path='/explore-one' element={<ExploreOne/>}/>
+          <Route path='/explore-two' element={<ExploreTwo/>}/>
+          <Route path='/explore-three' element={<ExploreThree/>}/>
+          <Route path='/explore-four' element={<ExploreFour/>}/>
+          <Route path='/auction' element={<Auction/>}/>
+          <Route path='/search' element={<SearchResults/>}/>
+          <Route path='/item-detail-one' element={<ItemDetailOne/>}/>
+          <Route path='/item-detail-one/:id' element={<ItemDetailOne/>}/>
+          <Route path='/item-detail-Two' element={<ItemDetailTwo/>}/>          <Route path='/activity' element={<ProtectedRoute><Activity/></ProtectedRoute>}/>
+          <Route path='/pricing' element={<Pricing/>}/>
+          <Route path='/wallet' element={<ProtectedRoute><Wallet/></ProtectedRoute>}/>
+          <Route path='/aboutus' element={<Aboutus/>}/>
+          <Route path='/creators' element={<Creators/>}/>
+          <Route path='/creator-profile' element={<ProtectedRoute><CreatorProfile/></ProtectedRoute>}/>
+          <Route path='/creator-profile-edit' element={<ProtectedRoute><CreatorProfileEdit/></ProtectedRoute>}/>
+          <Route path='/become-creator' element={<ProtectedRoute><BecomeCreator/></ProtectedRoute>}/>
+          <Route path='/collections' element={<Collections/>}/>
+          <Route path='/blogs' element={<Blogs/>}/>
+          <Route path='/blog-sidebar' element={<BlogSidebar/>}/>
+          <Route path='/blog-detail' element={<BlogDetail/>}/>
+          <Route path='/blog-detail/:id' element={<BlogDetail/>}/>
+          <Route path='/login' element={<ProtectedRoute requireAuth={false}><Login/></ProtectedRoute>}/>
+          <Route path='/signup' element={<ProtectedRoute requireAuth={false}><Signup/></ProtectedRoute>}/>
+          <Route path='/reset-password' element={<ProtectedRoute requireAuth={false}><ResetPassword/></ProtectedRoute>}/>
+          <Route path='/lock-screen' element={<ProtectedRoute><LockScreen/></ProtectedRoute>}/>
+          <Route path='/comingsoon' element={<Comingsoon/>}/>
+          <Route path='/maintenance' element={<Maintenance/>}/>
+          <Route path='/error' element={<Error/>}/>
+          <Route path='/helpcenter-overview' element={<HelpcenterOverview/>}/>
+          <Route path='/helpcenter-faqs' element={<HelpcenterFaqs/>}/>
+          <Route path='/helpcenter-guides' element={<HelpcenterGuides/>}/>
+          <Route path='/helpcenter-support-request' element={<HelpcenterSupportRequest/>}/>          <Route path='/upload-work' element={<ProtectedRoute><UploadWork/></ProtectedRoute>}/>
+          <Route path='/terms' element={<Terms/>}/>
+          <Route path='/privacy' element={<Privacy/>}/>          <Route path='/contact' element={<Contact/>}/>
+              </Routes>
+            </SubscriptionProvider>
+          </UserResourcesProvider>
+        </FavoritesProvider>
+      </SearchProvider>
     </UserProvider>
   );
 }

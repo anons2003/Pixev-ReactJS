@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { resourceData } from '../../data/data';
+import LikeButton from '../LikeButton';
 
 export default function ProductTwo() {
 
@@ -42,15 +43,24 @@ export default function ProductTwo() {
         </div>
     </div>
 
-    <div className="row row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 g-4" id="grid">
-        {filterData.slice(0,8).map((item,index)=>{
+    <div className="row row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 g-4" id="grid">        {filterData.slice(0,8).map((item,index)=>{
             return(
                 <div className="col picture-item" data-groups='["games"]' key={index}>
                     <div className="card bg-white nft-items nft-primary rounded-md shadow overflow-hidden mb-1">
                         <div className="nft-image position-relative overflow-hidden">
                             <img src={item.product} className="img-fluid" alt=""/>
                             <div className="position-absolute top-0 end-0 m-2">
-                                <span className="like-icon shadow-sm"><Link to="#" className="text-muted icon"><i className="mdi mdi-18px mdi-heart mb-0"></i></Link></span>
+                                <LikeButton 
+                                    itemId={item.id}
+                                    itemData={{
+                                        id: item.id,
+                                        title: item.name,
+                                        price: item.price,
+                                        image: item.product,
+                                        creator: 'Creator',
+                                        category: item.category
+                                    }}
+                                />
                             </div>
 
                             <div className="bid-btn">

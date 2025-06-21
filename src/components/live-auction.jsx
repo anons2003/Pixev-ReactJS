@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { resourceData } from '../data/data'
+import LikeButton from './LikeButton'
 
 
 export default function LiveAuction() {
@@ -43,8 +44,7 @@ export default function LiveAuction() {
         </div>
     </div>
 
-    <div className="row row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1 g-4">
-        {productData.slice(0,4).map((item,index)=>{
+    <div className="row row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1 g-4">        {productData.slice(0,4).map((item,index)=>{
             return(
                 <div className="col" key={index}>
                     <div className="card nft-items nft-primary rounded-md shadow overflow-hidden mb-1 p-3">
@@ -61,7 +61,17 @@ export default function LiveAuction() {
                                 </Link>
                             </div>
                             
-                            <span className="like-icon shadow-sm"><Link to="#" className="text-muted icon"><i className="mdi mdi-18px mdi-heart mb-0"></i></Link></span>
+                            <LikeButton 
+                                itemId={item.id}
+                                itemData={{
+                                    id: item.id,
+                                    title: item.name,
+                                    price: item.price,
+                                    image: item.product,
+                                    creator: 'Creator',
+                                    category: item.category
+                                }}
+                            />
                         </div>
 
                         <div className="nft-image rounded-md mt-3 position-relative overflow-hidden">

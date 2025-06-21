@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useUser } from '../../contexts/UserContext';
 
 import bg1 from '../../assets/images/bg/01.jpg'
@@ -9,13 +9,17 @@ export default function Login() {
     const [email, setEmail] = useState('');
     const { login, isLoading, demoUsers } = useUser();
     const navigate = useNavigate();
+    const location = useLocation();
+    
+    // Get the page user was trying to access before login
+    const from = location.state?.from?.pathname || '/';
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (email) {
             login(email);
             setTimeout(() => {
-                navigate('/');
+                navigate(from, { replace: true });
             }, 600);
         }
     };
@@ -24,7 +28,7 @@ export default function Login() {
         setEmail(demoEmail);
         login(demoEmail);
         setTimeout(() => {
-            navigate('/');
+            navigate(from, { replace: true });
         }, 600);
     };
 
@@ -61,6 +65,12 @@ export default function Login() {
                                     >
                                         {isLoading ? 'Signing in...' : 'Sign in'}
                                     </button>
+
+                                    <div className="text-center mb-3">
+                                        <Link to="/reset-password" className="text-muted small">
+                                            Forgot your password?
+                                        </Link>
+                                    </div>
 
                                     <div className="text-center mb-3">
                                         <small className="text-muted">Quick Demo Login:</small>

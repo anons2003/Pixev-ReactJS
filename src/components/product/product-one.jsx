@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { resourceData } from '../../data/data'
+import LikeButton from '../LikeButton'
 
 export default function ProductOne({filter}) {
     const [productData, setProductData] = useState(resourceData);
@@ -77,10 +78,13 @@ export default function ProductOne({filter}) {
                                 </Link>
                                 <Link to="/creator-profile" className="user-avatar ms-n3">
                                     <img src={item.creater3} alt="user" className="avatar avatar-sm-sm img-thumbnail border-0 shadow-sm rounded-circle"/>
-                                </Link>
-                            </div>
+                                </Link>                            </div>
                             
-                            <span className="like-icon shadow-sm"><Link to="#" className="text-muted icon"><i className="mdi mdi-18px mdi-heart mb-0"></i></Link></span>
+                            <LikeButton 
+                                itemId={item.id}
+                                className="like-icon shadow-sm"
+                                showAnimation={true}
+                            />
                         </div>
 
                         <div className="nft-image rounded-md mt-3 position-relative overflow-hidden">

@@ -7,8 +7,11 @@ import clientImg from '../../assets/images/client/09.jpg'
 import LiveAuctionTwo from '../../components/live-auction-two'
 import Navbar from '../../components/navbar'
 import Footer from '../../components/footer'
+import LikeButton from '../../components/LikeButton'
 
 import { activityData, bidsData, resourceData } from '../../data/data'
+import { useSubscription } from '../../contexts/SubscriptionContext'
+import { useUser } from '../../contexts/UserContext'
 
 import Modal from 'react-bootstrap/Modal';
 
@@ -20,9 +23,60 @@ export default function ItemDetailOne() {
     let [activeTab, setActiveTab] = useState(1)
     let [show, setShow] = useState(false);
     let [show2, setShow2] = useState(false);
+    let [downloading, setDownloading] = useState(false);
+    
     const params = useParams()
     const id = params.id
     const data = resourceData.find((item) => item.id === parseInt(id))
+    
+    const { user } = useUser();
+    const { 
+        userSubscription, 
+        canDownload, 
+        downloadResource, 
+        hasDownloadedToday,
+        getRemainingDownloads 
+    } = useSubscription();
+
+    const isPremiumResource = data?.premium || false;
+    const canUserDownload = canDownload(isPremiumResource);
+    const remainingDownloads = getRemainingDownloads();
+
+    const handleDownload = async () => {
+        if (!user) {
+            alert('Please login to download resources');
+            return;
+        }
+
+        if (!canUserDownload) {
+            setShow2(true);
+            return;
+        }
+
+        setDownloading(true);
+        try {
+            await downloadResource({
+                id: data.id,
+                title: data.title || 'Modern Web Design Template',
+                type: data.type || 'template',
+                premium: isPremiumResource
+            });
+            
+            // Simulate file download
+            const element = document.createElement('a');
+            element.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent('This is a demo download file for: ' + (data.title || 'Modern Web Design Template'));
+            element.download = `${data.title || 'template'}.zip`;
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+            
+            alert('Download started successfully!');
+        } catch (error) {
+            alert(error.message);
+        } finally {
+            setDownloading(false);
+        }
+    };
 
     let deadline = "December, 31, 2024";
     let getTime = () => {
@@ -48,33 +102,88 @@ export default function ItemDetailOne() {
                   <div className="sticky-bar">
                       <img src={data?.product ? data.product : resourceImage} className="img-fluid rounded-md shadow" alt=""/>
                   </div>
-              </div>
-
-              <div className="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
+              </div>              <div className="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
                   <div className="ms-lg-5">
-                      <div className="title-heading">
-                          <h4 className="h3 fw-bold mb-0">Modern Web Design Template<br/> <span className="text-gradient-primary">Professional</span> <span className="text-gradient-primary">Responsive</span> Layout</h4>
-                      </div>                      <div className="row">                          <div className="col-md-6 mt-4 pt-2">
+                      <div className="title-heading d-flex justify-content-between align-items-start">
+                          <div>
+                              <h4 className="h3 fw-bold mb-0">{data?.title || 'Modern Web Design Template'}<br/> 
+                                  <span className="text-gradient-primary">Professional</span> 
+                                  <span className="text-gradient-primary">Responsive</span> Layout
+                              </h4>
+                          </div>
+                          <LikeButton itemId={data?.id} />
+                      </div><div className="row">                          <div className="col-md-6 mt-4 pt-2">
                               <h6>Access Level</h6>
                               <div className="d-flex align-items-center">
-                                  <span className="badge bg-soft-primary text-primary fs-6 me-2">Premium</span>
-                                  <small className="text-muted">Subscription required</small>
+                                  <span className={`badge ${isPremiumResource ? 'bg-soft-warning text-warning' : 'bg-soft-success text-success'} fs-6 me-2`}>
+                                      {isPremiumResource ? 'Premium' : 'Free'}
+                                  </span>
+                                  <small className="text-muted">
+                                      {isPremiumResource ? 'Subscription required' : 'Free to download'}
+                                  </small>
                               </div>
                           </div>
 
                           <div className="col-md-6 mt-4 pt-2">
                               <h6>File Formats</h6>
-                              <h4 className="fw-bold mb-0">HTML, CSS, JS</h4>
-                          </div>                          <div className="col-12 mt-4 pt-2">
-                              <Link to="/pricing" className="btn btn-l btn-pills btn-primary me-2"><i className="mdi mdi-crown fs-5 me-2"></i> Get Premium Access</Link>
-                              <Link to="#" className="btn btn-l btn-pills btn-outline-primary" onClick={()=>setShow(true)}><i className="mdi mdi-eye fs-5 me-2"></i> Preview</Link>
+                              <h4 className="fw-bold mb-0">{data?.format || 'HTML, CSS, JS'}</h4>
                           </div>
-                          
-                          <div className="col-12 mt-3">
-                              <div className="alert alert-info">
-                                  <i className="mdi mdi-information-outline me-2"></i>
-                                  <strong>Premium subscribers</strong> get unlimited downloads of all resources with commercial licenses included.
-                              </div>
+
+                          <div className="col-12 mt-4 pt-2">
+                              {canUserDownload ? (
+                                  <button 
+                                      className="btn btn-l btn-pills btn-success me-2" 
+                                      onClick={handleDownload}
+                                      disabled={downloading}
+                                  >
+                                      <i className={`mdi ${downloading ? 'mdi-loading mdi-spin' : 'mdi-download'} fs-5 me-2`}></i> 
+                                      {downloading ? 'Downloading...' : 'Download Now'}
+                                  </button>
+                              ) : (
+                                  <button 
+                                      className="btn btn-l btn-pills btn-primary me-2" 
+                                      onClick={() => setShow2(true)}
+                                  >
+                                      <i className="mdi mdi-crown fs-5 me-2"></i> 
+                                      {isPremiumResource ? 'Get Premium Access' : 'Subscribe to Download'}
+                                  </button>
+                              )}
+                              <button className="btn btn-l btn-pills btn-outline-primary" onClick={()=>setShow(true)}>
+                                  <i className="mdi mdi-eye fs-5 me-2"></i> Preview
+                              </button>
+                          </div>                          <div className="col-12 mt-3">
+                              {user && userSubscription ? (
+                                  userSubscription.plan?.id === 'free' ? (
+                                      <div className="alert alert-info">
+                                          <i className="mdi mdi-information-outline me-2"></i>
+                                          <strong>Free Plan:</strong> {remainingDownloads === Infinity ? 'Unlimited' : remainingDownloads} downloads remaining today.
+                                          {isPremiumResource && (
+                                              <div className="mt-2">
+                                                  <small>⭐ This is a premium resource. <Link to="/pricing" className="fw-bold">Upgrade to Premium</Link> for unlimited access.</small>
+                                              </div>
+                                          )}
+                                      </div>
+                                  ) : (
+                                      <div className="alert alert-success">
+                                          <i className="mdi mdi-crown me-2"></i>
+                                          <strong>Premium Plan:</strong> Unlimited downloads • Commercial license included
+                                          {isPremiumResource && (
+                                              <div className="mt-1">
+                                                  <small>✨ Premium resource - Available for download</small>
+                                              </div>
+                                          )}
+                                      </div>
+                                  )
+                              ) : (
+                                  <div className="alert alert-warning">
+                                      <i className="mdi mdi-account-outline me-2"></i>
+                                      <strong>Not logged in:</strong> Please login to download resources.
+                                      <div className="mt-2">
+                                          <Link to="/login" className="btn btn-sm btn-primary me-2">Login</Link>
+                                          <Link to="/creator-profile" className="btn btn-sm btn-outline-primary">Try Demo</Link>
+                                      </div>
+                                  </div>
+                              )}
                           </div>
                       </div>
 
@@ -221,8 +330,9 @@ export default function ItemDetailOne() {
       <div className="container mt-100 mt-60">
           <LiveAuctionTwo/>
       </div>
-    </section>
-    <Footer/>      <Modal show={show} onHide={()=>setShow(false)}>
+    </section>    <Footer/>
+    
+    <Modal show={show} onHide={()=>setShow(false)}>
         <Modal.Header>
           <Modal.Title className="modal-title d-flex w-100">
             <h5 className="modal-title" id="previewtitle">Preview Template</h5>
@@ -241,52 +351,58 @@ export default function ItemDetailOne() {
                 <p className="text-muted mt-3">This is a preview of the template. Subscribe to Premium for full access to all files and features.</p>
             </div>
           </div>
-        </Modal.Body>        <Modal.Footer>
+        </Modal.Body>
+        <Modal.Footer>
           <Link to="/pricing" className="btn btn-pills btn-primary" onClick={()=>setShow(false)}><i className="mdi mdi-crown fs-5 me-2"></i> Get Premium Access</Link>
         </Modal.Footer>
-      </Modal>      <Modal show={show2} onHide={()=>setShow2(false)}>
+      </Modal>
+
+      <Modal show={show2} onHide={()=>setShow2(false)}>
         <Modal.Header>
           <Modal.Title className="modal-title d-flex w-100">
-            <h5 className="modal-title" id="subscriptiontitle">Premium Subscription Required</h5>
-            <button type="button" className="btn btn-close" onClick={()=>setShow2(false)}><i className="uil uil-times fs-4 text-muted"></i></button>
+            <h5 className="modal-title" id="subscriptiontitle">
+                {isPremiumResource ? 'Premium Subscription Required' : 'Subscription Required'}
+            </h5>
+            <button type="button" className="btn btn-close" onClick={()=>setShow2(false)}>
+                <i className="uil uil-times fs-4 text-muted"></i>
+            </button>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="">
-            <div className="text-center mb-4">
-                <i className="mdi mdi-crown h1 text-primary"></i>
-                <h6 className="mt-3">Unlock Unlimited Access</h6>
-                <p className="text-muted">Get access to this template and thousands more with a Premium subscription.</p>
-            </div>
-
-            <div className="bg-soft-primary p-4 rounded mb-4">
-                <h6 className="mb-3">Premium Benefits:</h6>
-                <ul className="list-unstyled mb-0">
-                    <li className="mb-2"><i className="mdi mdi-check text-success me-2"></i>Unlimited downloads</li>
-                    <li className="mb-2"><i className="mdi mdi-check text-success me-2"></i>Commercial licenses included</li>
-                    <li className="mb-2"><i className="mdi mdi-check text-success me-2"></i>High-quality files</li>
-                    <li className="mb-2"><i className="mdi mdi-check text-success me-2"></i>Priority support</li>
-                    <li className="mb-0"><i className="mdi mdi-check text-success me-2"></i>No attribution required</li>
-                </ul>
-            </div>
-
-            <div className="d-flex justify-content-between align-items-center p-3 border rounded">
-                <div>
-                    <h6 className="mb-0">Premium Monthly</h6>
-                    <small className="text-muted">Cancel anytime</small>
+            <div className="text-center">
+                <i className="mdi mdi-crown text-warning display-4 mb-3"></i>
+                <h5 className="mb-3">
+                    {isPremiumResource 
+                        ? 'This is a Premium Resource' 
+                        : 'Download Limit Reached'}
+                </h5>
+                <p className="text-muted mb-4">
+                    {isPremiumResource 
+                        ? 'Access to this premium resource requires an active Premium subscription. Upgrade now to get unlimited downloads with commercial licenses included.'
+                        : `You've reached your daily download limit of ${userSubscription?.plan?.limits?.dailyDownloads || 5} resources. Upgrade to Premium for unlimited downloads.`}
+                </p>
+                
+                <div className="bg-soft-primary p-3 rounded mb-4">
+                    <h6 className="mb-2">Premium Benefits:</h6>
+                    <ul className="list-unstyled text-start mb-0">
+                        <li className="mb-1"><i className="uil uil-check text-success me-2"></i>Unlimited downloads</li>
+                        <li className="mb-1"><i className="uil uil-check text-success me-2"></i>Access to all premium resources</li>
+                        <li className="mb-1"><i className="uil uil-check text-success me-2"></i>Commercial licenses included</li>
+                        <li className="mb-1"><i className="uil uil-check text-success me-2"></i>Priority support</li>
+                    </ul>
                 </div>
-                <div className="text-end">
-                    <h5 className="mb-0 text-primary">$29<small>/month</small></h5>
-                    <small className="text-success">7-day free trial</small>
-                </div>
-            </div>
-            
-            <div className="mt-4">
-                <Link to="/pricing" className="btn btn-pills btn-primary w-100" onClick={()=>setShow2(false)}><i className="mdi mdi-crown fs-5 me-2"></i> Start Free Trial</Link>
-                <p className="text-center text-muted mt-2 small">Already have an account? <Link to="/login" className="text-primary">Sign in</Link></p>
             </div>
           </div>
         </Modal.Body>
+        <Modal.Footer>
+          <Link to="/pricing" className="btn btn-pills btn-primary me-2" onClick={()=>setShow2(false)}>
+              <i className="mdi mdi-crown fs-5 me-2"></i> Upgrade to Premium
+          </Link>
+          <button className="btn btn-pills btn-outline-secondary" onClick={()=>setShow2(false)}>
+              Maybe Later
+          </button>
+        </Modal.Footer>
       </Modal>
     </>
   )

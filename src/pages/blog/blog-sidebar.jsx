@@ -5,6 +5,7 @@ import bg1 from '../../assets/images/bg/02.jpg'
 
 import Navbar from '../../components/navbar'
 import Footer from '../../components/footer'
+import LikeButton from '../../components/LikeButton'
 
 import { blogData, cloud, recentPost } from '../../data/data';
 
@@ -45,17 +46,24 @@ export default function BlogSidebar() {
     <section className="section">
       <div className="container">
           <div className="row">
-              <div className="col-lg-8 col-md-6">
-                  <div className="row g-4">
-                    {
-                      blogData.map((item,index)=>{
-                        return(
+              <div className="col-lg-8 col-md-6">                  <div className="row g-4">
+                    {blogData.map((item,index)=>(
                         <div className="col-lg-6" key={index}>
                           <div className="card blog blog-primary shadow rounded-md overflow-hidden">
                               <div className="position-relative">
                                   <img src={item.image} className="img-fluid rounded-md" alt=""/>
                                   <div className="position-absolute top-0 end-0 m-3">
-                                      <span className="like-icon shadow-sm"><Link to="#" className="text-muted icon"><i className="mdi mdi-18px mdi-heart mb-0"></i></Link></span>
+                                      <LikeButton 
+                                          itemId={item.id}
+                                          itemData={{
+                                              id: item.id,
+                                              title: item.title,
+                                              price: 'Free',
+                                              image: item.image,
+                                              creator: item.author,
+                                              category: item.tag
+                                          }}
+                                      />
                                   </div>
                               </div>
                               <div className="card-body position-relative p-4">
@@ -68,15 +76,12 @@ export default function BlogSidebar() {
                                   <Link to={`/blog-detail/${item.id}`} className="text-dark title h5 mt-3">{item.title}</Link>
                                   
                                   <div className="mt-3 d-flex justify-content-between align-items-center">
-                                      <Link to={`/blog-detail/${item.id}`} className="btn btn-link text-muted">Read more <i className="mdi mdi-arrow-right"></i></Link>
-                                      <span className="text-muted fs-6">by <Link to="/creator-profile" className="link">{item.auther}</Link></span>
+                                      <Link to={`/blog-detail/${item.id}`} className="btn btn-link text-muted">Read more <i className="mdi mdi-arrow-right"></i></Link>                                      <span className="text-muted fs-6">by <Link to="/creator-profile" className="link">{item.auther}</Link></span>
                                   </div>
                               </div>
                           </div>
                         </div>
-                        )
-                      })
-                    }
+                    ))}
                       
                   </div>
   
